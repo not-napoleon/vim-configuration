@@ -1,6 +1,8 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+set foldmethod=indent
+set foldlevel=99
 set nocompatible
 set showmode
 set showcmd
