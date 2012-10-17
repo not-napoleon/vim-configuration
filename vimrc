@@ -66,3 +66,5 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " uglify chars past the 80 col limit
 au BufWinEnter *.py,*.pyw let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 let g:pyflakes_use_quickfix = 0
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
