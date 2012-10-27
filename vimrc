@@ -1,6 +1,7 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+call pathogen#infect()
 set foldmethod=indent
 set foldlevel=99
 set nocompatible
@@ -24,6 +25,8 @@ set incsearch
 filetype plugin indent on
  
 syntax enable
+set background=dark
+colorscheme solarized
 
 " Utility functions
 
