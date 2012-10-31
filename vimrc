@@ -1,7 +1,7 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 " call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
 call pathogen#infect()
+call pathogen#helptags()
 set foldmethod=indent
 set foldlevel=99
 set nocompatible
@@ -69,5 +69,9 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " uglify chars past the 80 col limit
 au BufWinEnter *.py,*.pyw let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 let g:pyflakes_use_quickfix = 0
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+" map <leader>j :RopeGotoDefinition<CR>
+" map <leader>r :RopeRename<CR>
+" I like the pyflakes plugin's presentation of errors better
+let g:pymode_lint = 0
+" let g:pymode_lint_onfly = 1
+" let g:pymode_lint_cwindow = 0
