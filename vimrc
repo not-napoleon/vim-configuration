@@ -21,6 +21,7 @@ set ignorecase
 set smartcase
 " show the `best match so far' as search strings are typed:
 set incsearch
+set backspace=indent,eol,start
 
 filetype plugin indent on
  
@@ -75,3 +76,7 @@ let g:pyflakes_use_quickfix = 0
 let g:pymode_lint = 0
 " let g:pymode_lint_onfly = 1
 " let g:pymode_lint_cwindow = 0
+
+" Jinja & Less
+au BufRead,BufNewFile *.j2 set filetype=htmljinja
+au BufRead,BufNewFile *.less set filetype=less
