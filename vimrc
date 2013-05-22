@@ -56,6 +56,7 @@ let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs
 
 " autocmd FileType python compiler pylint
 let g:pylint_show_rate = 0
+let g:pymode_indent = 0
 " Trey's python stuff
 " set adkeeper python style 
 " note: recommendation is to do this in a ~/.vim/after/ftplugin file
