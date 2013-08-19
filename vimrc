@@ -107,3 +107,9 @@ let g:pymode_lint = 0
 " Jinja & Less
 au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
+
+" Syntastic checker plugins
+" (These get run in order, later ones only running if the eariler ones didn't
+" produce errors.  So, given that, I put the less restrictive flake8 first
+let g:syntastic_python_checkers=['flake8', 'pylint']
+"let g:syntastic_python_checkers=['pylint', 'flake8']
