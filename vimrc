@@ -29,6 +29,32 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" Status line settings
+
+set statusline=
+set statusline+=%-3.3n\                      " buffer number
+set statusline+=%f\                          " filename
+set statusline+=%h%m%r%w                     " status flags
+"set statusline+=%=                           " right align remainder
+"set statusline+=0x%-8B                       " character value
+"set statusline+=%-14(%l,%c%V%)               " line, character
+"set statusline+=%<%P                         " file position
+set statusline+=%=                           " right align
+set statusline+=%r                           " are you read only?
+"set statusline+=\ \ \ \ %y                   " what the file type
+set statusline+=[                            "
+set statusline+=\ Line:                      "
+set statusline+=%3l/                         " Line number with padding
+set statusline+=%L                           " Total lines in the file
+set statusline+=:%2c                         " column number
+set statusline+=]
+
+" Always show status line
+set laststatus=2
+
+" Rely on airline's modified status marker
+set noshowmode
+
 " Utility functions
 
 " Timestamp Sig
