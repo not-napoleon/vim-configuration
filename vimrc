@@ -113,3 +113,5 @@ au BufRead,BufNewFile *.less set filetype=less
 " produce errors.  So, given that, I put the less restrictive flake8 first
 let g:syntastic_python_checkers=['flake8', 'pylint']
 "let g:syntastic_python_checkers=['pylint', 'flake8']
+
+" let g:syntastic_python_pylint_args="--rcfile=~/code/outland/src/.pylintrc"
