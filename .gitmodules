@@ -28,3 +28,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/sideways.vim"]
+	path = bundle/sideways.vim
+	url = https://github.com/AndrewRadev/sideways.vim.git
