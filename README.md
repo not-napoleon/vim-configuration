@@ -3,5 +3,9 @@ vim-configuration
 
 Place to store my assorted vim stuff
 
-Python configuration swiped largely from
-http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide
+Notes for bootstrapping new machines:
+
+  * Install powerline fonts from https://github.com/Lokaltog/powerline-fonts
+    (see also documentation at https://powerline.readthedocs.org/en/latest/fontpatching.html)
+
+  * For iterm2 - profile settings >> terminal >> report terminal as xterm-256color
