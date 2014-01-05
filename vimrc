@@ -26,10 +26,13 @@ set backspace=indent,eol,start
 filetype plugin indent on
  
 syntax enable
+
 set background=dark
 colorscheme solarized
 
 " Status line settings
+
+let g:airline_powerline_fonts = 1
 
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
@@ -48,6 +51,8 @@ set statusline+=%3l/                         " Line number with padding
 set statusline+=%L                           " Total lines in the file
 set statusline+=:%2c                         " column number
 set statusline+=]
+
+let g:airline_theme = 'dark'
 
 " Always show status line
 set laststatus=2
@@ -109,9 +114,9 @@ au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
 
 " Syntastic checker plugins
+let g:airline#extensions#syntastic#enabled = 0
+
 " (These get run in order, later ones only running if the eariler ones didn't
 " produce errors.  So, given that, I put the less restrictive flake8 first
 let g:syntastic_python_checkers=['flake8', 'pylint']
-"let g:syntastic_python_checkers=['pylint', 'flake8']
 
-" let g:syntastic_python_pylint_args="--rcfile=~/code/outland/src/.pylintrc"
