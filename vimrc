@@ -72,12 +72,6 @@ endif
 
 iab MT <C-R>=TimeStamp()<cr>
 
-" use F2 to create a new c-stlye block 
-vmap <F2> ><esc>'<i{<cr><esc>'>o}<esc>
-
-" inline url encode & decode tools
-vmap <leader>urld !perl -MURI::Escape -ne 'print uri_unesacpe($_)'<CR>
-vmap <leader>urle !perl -MURI::Escape -ne 'print uri_escape($_)'<CR>
 
 " Filetype Specific stuff
 
