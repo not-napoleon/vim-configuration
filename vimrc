@@ -30,6 +30,13 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" *********
+" PLUGIN CONFIGURATION
+" *********
+
+" *********
+" Airline config
+" *********
 " Status line settings
 
 let g:airline_powerline_fonts = 1
@@ -60,20 +67,44 @@ set laststatus=2
 " Rely on airline's modified status marker
 set noshowmode
 
-" Utility functions
+" *********
+" Syntastic config
+" *********
+
+" Syntastic checker plugins
+let g:airline#extensions#syntastic#enabled = 0
+
+" (These get run in order, later ones only running if the eariler ones didn't
+" produce errors.  So, given that, I put the less restrictive flake8 first
+let g:syntastic_python_checkers=['flake8', 'pylint']
+
+" *********
+" Sideways macro & text object
+" *********
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
+
+omap aa <Plug>SidewaysArgumentTextobjA
+xmap aa <Plug>SidewaysArgumentTextobjA
+omap ia <Plug>SidewaysArgumentTextobjI
+xmap ia <Plug>SidewaysArgumentTextobjI
+
+" *********
+" UTILITY FUNCTIONS
+" *********
 
 " Timestamp Sig
-" first add a function that returns a time stamp in the desired format
 if !exists("*TimeStamp")
 	fun TimeStamp()
 		return "--MT (" . strftime("%d %b %Y %X") . ")"
 	endfun
 endif
-
 iab MT <C-R>=TimeStamp()<cr>
 
 
-" Filetype Specific stuff
+" *********
+" FILETYPE SPECIFIC STUFf
+" *********
 
 " Perl
 autocmd FileType perl set smartindent
@@ -106,11 +137,4 @@ let g:pymode_lint = 0
 " Jinja & Less
 au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
-
-" Syntastic checker plugins
-let g:airline#extensions#syntastic#enabled = 0
-
-" (These get run in order, later ones only running if the eariler ones didn't
-" produce errors.  So, given that, I put the less restrictive flake8 first
-let g:syntastic_python_checkers=['flake8', 'pylint']
 
