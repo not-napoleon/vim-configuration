@@ -78,6 +78,14 @@ set laststatus=2
 " Rely on airline's modified status marker
 set noshowmode
 
+" ********
+" Easytags Config
+" ********
+
+let g:easytags_async = 1
+let g:easytags_auto_highlight = 0
+
+
 " *********
 " Syntastic config
 " *********
