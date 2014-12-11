@@ -12,6 +12,8 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 set ruler
+set cursorline
+set cursorcolumn
 set number
 set ffs="unix"
 set nobackup
