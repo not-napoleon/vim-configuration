@@ -131,6 +131,7 @@ iab MT <C-R>=TimeStamp()<cr>
 autocmd FileType perl set smartindent
 let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs)
 
+" Python
 " autocmd FileType python compiler pylint
 let g:pylint_show_rate = 0
 let g:pymode_indent = 0
@@ -155,7 +156,12 @@ let g:pymode_lint = 0
 " let g:pymode_lint_onfly = 1
 " let g:pymode_lint_cwindow = 0
 
+" C# and Mono
+autocmd FileType cs setlocal noexpandtab
+
 " Jinja & Less
 au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
 
+" Restructured  text
+autocmd FileType rst setlocal textwidth=78
