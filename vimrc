@@ -164,4 +164,4 @@ au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
 
 " Restructured  text
-autocmd FileType rst setlocal textwidth=78
+autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
