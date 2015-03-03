@@ -1,53 +1,61 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'AndrewRadev/sideways.vim'
+Plug 'AndrewRadev/sideways.vim'                         " move items areound in lists
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-Plug 'altercation/vim-colors-solarized'
-Plug 'bling/vim-airline'
-Plug 'elzr/vim-json'
-Plug 'godlygeek/tabular'
-Plug 'gregsexton/MatchTag'
-Plug 'haya14busa/incsearch.vim'
-Plug 'lepture/vim-jinja'
-Plug 'mattn/gist-vim'
-Plug 'mattn/webapi-vim'
-Plug 'scrooloose/syntastic'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-scripts/TaskList.vim'
+Plug 'altercation/vim-colors-solarized'                 " solarized color scheme
+Plug 'bling/vim-airline'                                " Improved status line
+Plug 'elzr/vim-json'                                    " Json highliting and other fun
+Plug 'godlygeek/tabular'                                " align text as needed
+Plug 'gregsexton/MatchTag'                              " tag pairing? I guess?
+Plug 'haya14busa/incsearch.vim'                         " Better incremental search
+Plug 'lepture/vim-jinja'                                " Jinja highlighting
+Plug 'mattn/gist-vim'                                   " post gists direct from vim! amazing!
+Plug 'mattn/webapi-vim'                                 " Required by gist-vim
+Plug 'scrooloose/syntastic'                             " Flag syntax errors
+Plug 'tomtom/tcomment_vim'                              " block commenting
+Plug 'tpope/vim-fugitive'                               " Git integration
+Plug 'tpope/vim-surround'                               " Handle paired markers
+Plug 'tpope/vim-unimpaired'                             " paired short-cuts with braces
+Plug 'vim-scripts/TaskList.vim'                         " Work with todo tags
 
 call plug#end()
 
+set nocompatible " Who uses actual vi?
+
 set foldmethod=indent
 set foldlevel=99
-set nocompatible
-set showmode
-set showcmd
+
+set showcmd " Show what's been typed so far in command pending mode
+
+" Apparently I think I still work for Trey
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set ruler
+
+" Cursor Cross-hairs!
 set cursorline
 set cursorcolumn
-set number
-set ffs="unix"
+
+set number " Line Numbers!
+
+set ffs="unix" " Show those ^M's when editing a windows file
+
+" Live dangerously
 set nobackup
 set nowritebackup
+
 " make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
 set smartcase
 " show the `best match so far' as search strings are typed:
 set incsearch
-set backspace=indent,eol,start
 
-" Send more characters for redraws
-set ttyfast
+set backspace=indent,eol,start " Make backspace not suck
 
-" Enable mouse use in all modes
-set mouse=a
+set ttyfast " Send more characters for redraws
+
+set mouse=a " Enable mouse use in all modes
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
@@ -76,13 +84,8 @@ set statusline=
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=%f\                          " filename
 set statusline+=%h%m%r%w                     " status flags
-"set statusline+=%=                           " right align remainder
-"set statusline+=0x%-8B                       " character value
-"set statusline+=%-14(%l,%c%V%)               " line, character
-"set statusline+=%<%P                         " file position
 set statusline+=%=                           " right align
 set statusline+=%r                           " are you read only?
-"set statusline+=\ \ \ \ %y                   " what the file type
 set statusline+=[                            "
 set statusline+=\ Line:                      "
 set statusline+=%3l/                         " Line number with padding
@@ -92,11 +95,9 @@ set statusline+=]
 
 let g:airline_theme = 'dark'
 
-" Always show status line
-set laststatus=2
+set laststatus=2 " Always show status line
 
-" Rely on airline's modified status marker
-set noshowmode
+set noshowmode " Rely on airline's modified status marker
 
 " *********
 " Syntastic config
@@ -145,6 +146,7 @@ let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs
 " autocmd FileType python compiler pylint
 let g:pylint_show_rate = 0
 let g:pymode_indent = 0
+
 " Trey's python stuff
 " set adkeeper python style 
 " note: recommendation is to do this in a ~/.vim/after/ftplugin file
