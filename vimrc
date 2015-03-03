@@ -1,7 +1,25 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-" call pathogen#runtime_append_all_bundles()
-call pathogen#infect()
-call pathogen#helptags()
+call plug#begin('~/.vim/plugged')
+
+Plug 'AndrewRadev/sideways.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'elzr/vim-json'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/MatchTag'
+Plug 'haya14busa/incsearch.vim'
+Plug 'lepture/vim-jinja'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'scrooloose/syntastic'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/TaskList.vim'
+
+call plug#end()
+
 set foldmethod=indent
 set foldlevel=99
 set nocompatible
@@ -80,14 +98,6 @@ set laststatus=2
 " Rely on airline's modified status marker
 set noshowmode
 
-" ********
-" Easytags Config
-" ********
-
-let g:easytags_async = 1
-let g:easytags_auto_highlight = 0
-
-
 " *********
 " Syntastic config
 " *********
@@ -160,7 +170,7 @@ let g:pymode_lint = 0
 autocmd FileType cs setlocal noexpandtab
 
 " Jinja & Less
-au BufRead,BufNewFile *.j2 set filetype=htmljinja
+au BufRead,BufNewFile *.j2 set filetype=jinja
 au BufRead,BufNewFile *.less set filetype=less
 
 " Restructured  text
