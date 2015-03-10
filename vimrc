@@ -1,22 +1,27 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'AndrewRadev/sideways.vim'                         " move items areound in lists
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-Plug 'altercation/vim-colors-solarized'                 " solarized color scheme
-Plug 'bling/vim-airline'                                " Improved status line
-Plug 'elzr/vim-json'                                    " Json highliting and other fun
-Plug 'godlygeek/tabular'                                " align text as needed
-Plug 'gregsexton/MatchTag'                              " tag pairing? I guess?
-Plug 'haya14busa/incsearch.vim'                         " Better incremental search
-Plug 'lepture/vim-jinja'                                " Jinja highlighting
-Plug 'mattn/gist-vim'                                   " post gists direct from vim! amazing!
-Plug 'mattn/webapi-vim'                                 " Required by gist-vim
-Plug 'scrooloose/syntastic'                             " Flag syntax errors
-Plug 'tomtom/tcomment_vim'                              " block commenting
-Plug 'tpope/vim-fugitive'                               " Git integration
-Plug 'tpope/vim-surround'                               " Handle paired markers
-Plug 'tpope/vim-unimpaired'                             " paired short-cuts with braces
-Plug 'vim-scripts/TaskList.vim'                         " Work with todo tags
+Plug 'AndrewRadev/sideways.vim'              " Move items areound in lists
+Plug 'SirVer/ultisnips'                      " Snippets and such
+Plug 'Valloric/YouCompleteMe',
+    \{ 'do': './install.sh --clang-completer' }
+Plug 'altercation/vim-colors-solarized'      " Solarized color scheme
+Plug 'bling/vim-airline'                     " Improved status line
+Plug 'elzr/vim-json'                         " Json highliting and other fun
+Plug 'godlygeek/tabular'                     " Align text as needed
+Plug 'gregsexton/MatchTag'                   " Tag pairing? I guess?
+Plug 'haya14busa/incsearch.vim'              " Better incremental search
+Plug 'klen/python-mode'                      " All manner of python stuff
+Plug 'lepture/vim-jinja'                     " Jinja highlighting
+Plug 'mattn/gist-vim'                        " Post gists direct from vim! amazing!
+Plug 'mattn/webapi-vim'                      " Required by gist-vim
+Plug 'scrooloose/syntastic'                  " Flag syntax errors
+Plug 'tomtom/tcomment_vim'                   " Block commenting
+Plug 'tpope/vim-fugitive'                    " Git integration
+Plug 'tpope/vim-repeat'                      " Enable dot repeat for plugins
+Plug 'tpope/vim-speeddating'                 " Increment/decrement dates
+Plug 'tpope/vim-surround'                    " Handle paired markers
+Plug 'tpope/vim-unimpaired'                  " Paired short-cuts with braces
+Plug 'vim-scripts/TaskList.vim'              " Work with todo tags
 
 call plug#end()
 
@@ -63,7 +68,6 @@ set ttymouse=xterm2
 
 
 filetype plugin indent on
- 
 syntax enable
 
 set background=dark
@@ -100,16 +104,38 @@ set laststatus=2 " Always show status line
 set noshowmode " Rely on airline's modified status marker
 
 " *********
+" Python Mode
+" *********
+
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pylint_show_rate = 0
+let g:pymode_indent = 0
+let g:pymode_folding = 1
+let g:pymode_motion = 1
+
+" I like the pyflakes plugin's presentation of errors better
+let g:pymode_lint = 0
+let g:pymode_lint_on_write = 0
+
+" I'm using YCM for completion
+let g:pymode_rope_completion = 0
+
+" let g:pymode_lint_onfly = 1
+" let g:pymode_lint_cwindow = 0
+
+" *********
 " Syntastic config
 " *********
 
 " Syntastic checker plugins
 let g:airline#extensions#syntastic#enabled = 0
 
-" (These get run in order, later ones only running if the eariler ones didn't
-" produce errors.  So, given that, I put the less restrictive flake8 first
-let g:syntastic_python_checkers=['flake8', 'pylint']
+let g:syntastic_aggregate_errors = 1
 
+let g:syntastic_python_checkers=['flake8', 'pylint']
+" Always populate error list
+let g:syntastic_always_populate_loc_list = 1
 " *********
 " Sideways macro & text object
 " *********
@@ -144,8 +170,6 @@ let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs
 
 " Python
 " autocmd FileType python compiler pylint
-let g:pylint_show_rate = 0
-let g:pymode_indent = 0
 
 " Trey's python stuff
 " set adkeeper python style 
@@ -163,10 +187,6 @@ au BufWinEnter *.py,*.pyw let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 let g:pyflakes_use_quickfix = 0
 " map <leader>j :RopeGotoDefinition<CR>
 " map <leader>r :RopeRename<CR>
-" I like the pyflakes plugin's presentation of errors better
-let g:pymode_lint = 0
-" let g:pymode_lint_onfly = 1
-" let g:pymode_lint_cwindow = 0
 
 " C# and Mono
 autocmd FileType cs setlocal noexpandtab
