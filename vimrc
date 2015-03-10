@@ -15,6 +15,7 @@ Plug 'lepture/vim-jinja'                     " Jinja highlighting
 Plug 'mattn/gist-vim'                        " Post gists direct from vim! amazing!
 Plug 'mattn/webapi-vim'                      " Required by gist-vim
 Plug 'scrooloose/syntastic'                  " Flag syntax errors
+Plug 'scrooloose/nerdtree'                   " Filesystem broswer
 Plug 'tomtom/tcomment_vim'                   " Block commenting
 Plug 'tpope/vim-fugitive'                    " Git integration
 Plug 'tpope/vim-repeat'                      " Enable dot repeat for plugins
@@ -102,6 +103,13 @@ let g:airline_theme = 'dark'
 set laststatus=2 " Always show status line
 
 set noshowmode " Rely on airline's modified status marker
+
+" *********
+" Nerd Tree
+" *********
+
+map <C-n> :NERDTreeToggle<CR>
+
 
 " *********
 " Python Mode
