@@ -128,6 +128,14 @@ let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, colum
 
 
 " *********
+" Gist
+" *********
+" Mac clipboard.  TODO: Detect OS and set based on that
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
+
+" *********
 " Nerd Tree
 " *********
 map <C-n> :NERDTreeToggle<CR>
