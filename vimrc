@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'AndrewRadev/sideways.vim'              " Move items areound in lists
+Plug 'AndrewRadev/sideways.vim'              " Move items around in lists
 Plug 'SirVer/ultisnips'                      " Snippets and such
 Plug 'Valloric/YouCompleteMe',
     \{ 'do': './install.sh --clang-completer' }
@@ -10,10 +10,12 @@ Plug 'elzr/vim-json'                         " Json highliting and other fun
 Plug 'godlygeek/tabular'                     " Align text as needed
 Plug 'gregsexton/MatchTag'                   " Tag pairing? I guess?
 Plug 'haya14busa/incsearch.vim'              " Better incremental search
+Plug 'kien/ctrlp.vim'                        " Fuzzy match file opener
 Plug 'klen/python-mode'                      " All manner of python stuff
 Plug 'lepture/vim-jinja'                     " Jinja highlighting
 Plug 'mattn/gist-vim'                        " Post gists direct from vim! amazing!
 Plug 'mattn/webapi-vim'                      " Required by gist-vim
+Plug 'ntpeters/vim-better-whitespace'        " Trailing Whitespace highlite & trim
 Plug 'scrooloose/syntastic'                  " Flag syntax errors
 Plug 'scrooloose/nerdtree'                   " Filesystem broswer
 Plug 'tomtom/tcomment_vim'                   " Block commenting
@@ -22,6 +24,7 @@ Plug 'tpope/vim-repeat'                      " Enable dot repeat for plugins
 Plug 'tpope/vim-speeddating'                 " Increment/decrement dates
 Plug 'tpope/vim-surround'                    " Handle paired markers
 Plug 'tpope/vim-unimpaired'                  " Paired short-cuts with braces
+Plug 'vim-scripts/text-object-left-and-right' " Text objects for LHS/RHS of expressions
 Plug 'vim-scripts/TaskList.vim'              " Work with todo tags
 
 call plug#end()
@@ -162,6 +165,8 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checkers=['flake8', 'pylint']
 " Always populate error list
 let g:syntastic_always_populate_loc_list = 1
+
+
 " *********
 " Sideways macro & text object
 " *********
@@ -172,6 +177,7 @@ omap aa <Plug>SidewaysArgumentTextobjA
 xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
+
 
 " *********
 " UTILITY FUNCTIONS
@@ -187,7 +193,7 @@ iab MT <C-R>=TimeStamp()<cr>
 
 
 " *********
-" FILETYPE SPECIFIC STUFf
+" FILETYPE SPECIFIC STUFF
 " *********
 
 " Perl
@@ -198,15 +204,13 @@ let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs
 " autocmd FileType python compiler pylint
 
 " Trey's python stuff
-" set adkeeper python style 
+" set adkeeper python style
 " note: recommendation is to do this in a ~/.vim/after/ftplugin file
 autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 let python_highlight_all=1
 highlight BadWhitespace ctermbg=red guibg=red
 " Display tabs at the beginning of a line in Python mode as bad.
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" " Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " uglify chars past the 80 col limit
 au BufWinEnter *.py,*.pyw let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
