@@ -1,31 +1,31 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'AndrewRadev/sideways.vim'              " Move items around in lists
-Plug 'SirVer/ultisnips'                      " Snippets and such
+Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
+Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'Valloric/YouCompleteMe',
     \{ 'do': './install.sh --clang-completer' }
-Plug 'altercation/vim-colors-solarized'      " Solarized color scheme
-Plug 'bling/vim-airline'                     " Improved status line
-Plug 'elzr/vim-json'                         " Json highliting and other fun
-Plug 'godlygeek/tabular'                     " Align text as needed
-Plug 'gregsexton/MatchTag'                   " Tag pairing? I guess?
-Plug 'haya14busa/incsearch.vim'              " Better incremental search
-Plug 'kien/ctrlp.vim'                        " Fuzzy match file opener
-Plug 'klen/python-mode'                      " All manner of python stuff
-Plug 'lepture/vim-jinja'                     " Jinja highlighting
-Plug 'mattn/gist-vim'                        " Post gists direct from vim! amazing!
-Plug 'mattn/webapi-vim'                      " Required by gist-vim
-Plug 'ntpeters/vim-better-whitespace'        " Trailing Whitespace highlite & trim
-Plug 'scrooloose/syntastic'                  " Flag syntax errors
-Plug 'scrooloose/nerdtree'                   " Filesystem broswer
-Plug 'tomtom/tcomment_vim'                   " Block commenting
-Plug 'tpope/vim-fugitive'                    " Git integration
-Plug 'tpope/vim-repeat'                      " Enable dot repeat for plugins
-Plug 'tpope/vim-speeddating'                 " Increment/decrement dates
-Plug 'tpope/vim-surround'                    " Handle paired markers
-Plug 'tpope/vim-unimpaired'                  " Paired short-cuts with braces
-Plug 'vim-scripts/text-object-left-and-right' " Text objects for LHS/RHS of expressions
-Plug 'vim-scripts/TaskList.vim'              " Work with todo tags
+Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
+Plug 'bling/vim-airline'                        " Improved status line
+Plug 'elzr/vim-json'                            " Json highliting and other fun
+Plug 'godlygeek/tabular'                        " Align text as needed
+Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
+Plug 'haya14busa/incsearch.vim'                 " Better incremental search
+Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
+Plug 'klen/python-mode'                         " All manner of python stuff
+Plug 'lepture/vim-jinja'                        " Jinja highlighting
+Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
+Plug 'mattn/webapi-vim'                         " Required by gist-vim
+Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
+Plug 'scrooloose/syntastic'                     " Flag syntax errors
+Plug 'scrooloose/nerdtree'                      " Filesystem broswer
+Plug 'tomtom/tcomment_vim'                      " Block commenting
+Plug 'tpope/vim-fugitive'                       " Git integration
+Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
+Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
+Plug 'tpope/vim-surround'                       " Handle paired markers
+Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
+Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
+Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 
 call plug#end()
 
