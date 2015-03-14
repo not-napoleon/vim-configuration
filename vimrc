@@ -84,30 +84,49 @@ colorscheme solarized
 " Status line settings
 
 let g:airline_powerline_fonts = 1
-
-set statusline=
-set statusline+=%-3.3n\                      " buffer number
-set statusline+=%f\                          " filename
-set statusline+=%h%m%r%w                     " status flags
-set statusline+=%=                           " right align
-set statusline+=%r                           " are you read only?
-set statusline+=[                            "
-set statusline+=\ Line:                      "
-set statusline+=%3l/                         " Line number with padding
-set statusline+=%L                           " Total lines in the file
-set statusline+=:%2c                         " column number
-set statusline+=]
-
-let g:airline_theme = 'dark'
-
 set laststatus=2 " Always show status line
-
 set noshowmode " Rely on airline's modified status marker
+let g:airline_theme = 'dark'
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 0
+
+" Shorten mode names
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+
+if !exists("*WeirdEncoding")
+    function! WeirdEncoding()
+        " Show file type and encoding, but only if they're not default
+        return printf('%s%s',
+              \ (&fenc ==? 'utf-8') ? '' : &fenc,
+              \ (&ff ==? 'unix') ? '' : '['.&ff.']')
+    endfunction
+endif
+
+" let g:airline_section_a                      " (mode, paste, iminsert)
+" let g:airline_section_b                      " (hunks, branch)
+" let g:airline_section_c'                     " (bufferline or filename)
+" let g:airline_section_gutter                 " (readonly, csv)
+let g:airline_section_x = ''                   " (tagbar, filetype, virtualenv)
+let g:airline_section_y = '%{WeirdEncoding()}' " (fileencoding, fileformat)
+let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, column number)
+" let g:airline_section_warning                " (syntastic, whitespace)
+
 
 " *********
 " Nerd Tree
 " *********
-
 map <C-n> :NERDTreeToggle<CR>
 
 
@@ -122,7 +141,7 @@ let g:pymode_indent = 0
 let g:pymode_folding = 1
 let g:pymode_motion = 1
 
-" I like the pyflakes plugin's presentation of errors better
+" I like the syntastic plugin's presentation of errors better
 let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 
@@ -137,7 +156,6 @@ let g:pymode_rope_completion = 0
 " *********
 
 " Syntastic checker plugins
-let g:airline#extensions#syntastic#enabled = 0
 
 let g:syntastic_aggregate_errors = 1
 
