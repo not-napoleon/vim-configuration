@@ -186,6 +186,21 @@ xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
 
+" *********
+" Ultisnips config
+" *********
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:ultisnips_python_stype="sphinx"
+
+" *********
+" YCM config
+" *********
+let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 
 " *********
 " UTILITY FUNCTIONS
@@ -235,3 +250,6 @@ au BufRead,BufNewFile *.less set filetype=less
 
 " Restructured  text
 autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
+
+" Tex/LaTeX files
+autocmd FileType tex setlocal spell spelllang=en_us
