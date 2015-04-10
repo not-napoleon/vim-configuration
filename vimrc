@@ -16,6 +16,8 @@ Plug 'lepture/vim-jinja'                        " Jinja highlighting
 Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
 Plug 'mattn/webapi-vim'                         " Required by gist-vim
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
+Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
+Plug 'rhysd/vim-clang-format'                   " Use clang formatting from within vim
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tomtom/tcomment_vim'                      " Block commenting
@@ -24,6 +26,7 @@ Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
+Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 
