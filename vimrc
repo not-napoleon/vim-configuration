@@ -29,6 +29,7 @@ Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
 Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
+Plug 'vim-scripts/vimwiki'                      " For note taking?
 
 call plug#end()
 
@@ -256,3 +257,6 @@ autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
 
 " Tex/LaTeX files
 autocmd FileType tex setlocal spell spelllang=en_us
+
+" Vimwiki
+autocmd FileType vimwiki setlocal spell spelllang=en_us
