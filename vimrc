@@ -130,6 +130,15 @@ let g:airline_section_y = '%{WeirdEncoding()}' " (fileencoding, fileformat)
 let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, column number)
 " let g:airline_section_warning                " (syntastic, whitespace)
 
+" *********
+" Clang Fomatter
+" *********
+" Enable clang format with gq command
+let g:clang_format#auto_formatexpr = 1
+
+" Read project style files
+let g:clang_format#detect_style_file = 1
+
 
 " *********
 " Gist
@@ -249,7 +258,7 @@ let g:pyflakes_use_quickfix = 0
 autocmd FileType cs setlocal noexpandtab
 
 " Jinja & Less
-au BufRead,BufNewFile *.j2 set filetype=jinja
+au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
 
 " Restructured  text
