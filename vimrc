@@ -42,9 +42,9 @@ set foldlevel=99
 set showcmd " Show what's been typed so far in command pending mode
 
 " Apparently I think I still work for Trey
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " Cursor Cross-hairs!
@@ -254,7 +254,6 @@ let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs
 " Trey's python stuff
 " set adkeeper python style
 " note: recommendation is to do this in a ~/.vim/after/ftplugin file
-autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 let python_highlight_all=1
 highlight BadWhitespace ctermbg=red guibg=red
 " Display tabs at the beginning of a line in Python mode as bad.
