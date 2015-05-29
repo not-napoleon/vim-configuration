@@ -7,6 +7,7 @@ Plug 'Valloric/YouCompleteMe',
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
 Plug 'elzr/vim-json'                            " Json highliting and other fun
+Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
@@ -139,6 +140,17 @@ let g:clang_format#auto_formatexpr = 1
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
+" *********
+" localvimrc
+" *********
+let g:localvimrc_name = ['.vimrc', '.lvimrc']
+let g:localvimrc_event = ['VimEnter']
+" Don't load in sandbox mode - risky, so we'll set an agressive blacklist &
+" ask before loading
+let g:localvimrc_sandbox = 0
+let g:localvimrc_ask = 1
+let g:localvimrc_persistent = 1
+let g:localvimrc_blacklist = '/Users/mtozzi/.vim/vimrc'
 
 " *********
 " Gist
