@@ -280,3 +280,6 @@ autocmd FileType tex setlocal spell spelllang=en_us
 
 " Vimwiki
 autocmd FileType vimwiki setlocal spell spelllang=en_us
+
+" Git commits
+autocmd FileType gitcommit setlocal spell spelllang=en_us
