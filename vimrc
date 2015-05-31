@@ -218,7 +218,7 @@ xmap ia <Plug>SidewaysArgumentTextobjI
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:ultisnips_python_stype="sphinx"
+let g:ultisnips_python_style="sphinx"
 
 " *********
 " YCM config
