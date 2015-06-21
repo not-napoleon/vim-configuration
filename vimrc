@@ -28,6 +28,7 @@ Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
 Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
+Plug 'vim-scripts/applescript.vim'              " Applescript syntax highlighting
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 Plug 'vim-scripts/vimwiki'                      " For note taking?
@@ -283,3 +284,6 @@ autocmd FileType vimwiki setlocal spell spelllang=en_us
 
 " Git commits
 autocmd FileType gitcommit setlocal spell spelllang=en_us
+
+" Applescript
+au BufRead,BufNewFile *.applescript set filetype=applescript
