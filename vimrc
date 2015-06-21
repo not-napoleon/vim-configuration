@@ -42,7 +42,6 @@ set foldlevel=99
 
 set showcmd " Show what's been typed so far in command pending mode
 
-" Apparently I think I still work for Trey
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
