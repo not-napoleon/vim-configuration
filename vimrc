@@ -8,6 +8,7 @@ Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
 Plug 'elzr/vim-json'                            " Json highliting and other fun
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
+Plug 'fmoralesc/vim-pad'                        " Notational Velocity style note app for vim
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
@@ -27,6 +28,7 @@ Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
+Plug 'vimoutliner/vimoutliner'                  " For note taking
 Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
 Plug 'vim-scripts/applescript.vim'              " Applescript syntax highlighting
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
