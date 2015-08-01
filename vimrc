@@ -1,3 +1,6 @@
+" vim: foldmethod=marker
+
+" Plugins {{{1
 call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
@@ -37,6 +40,7 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 
 call plug#end()
 
+" Config Settings {{{1
 set nocompatible " Who uses actual vi?
 
 set foldmethod=indent
@@ -81,16 +85,18 @@ set ttymouse=xterm2
 filetype plugin indent on
 syntax enable
 
+nnoremap <Space> za
+vnoremap <Space> za
+" Make zO recursively open whatever top level fold we're in, no matter where
+" the cursor happens to be.
+nnoremap zO zCzO
+
 set background=dark
 colorscheme solarized
 
-" *********
-" PLUGIN CONFIGURATION
-" *********
+" PLUGIN CONFIGURATION {{{1
 
-" *********
-" Airline config
-" *********
+" Airline config {{{2
 " Status line settings
 
 let g:airline_powerline_fonts = 1
@@ -133,18 +139,14 @@ let g:airline_section_y = '%{WeirdEncoding()}' " (fileencoding, fileformat)
 let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, column number)
 " let g:airline_section_warning                " (syntastic, whitespace)
 
-" *********
-" Clang Fomatter
-" *********
+" Clang Fomatter {{{2
 " Enable clang format with gq command
 let g:clang_format#auto_formatexpr = 1
 
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
-" *********
-" localvimrc
-" *********
+" localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
 let g:localvimrc_event = ['VimEnter']
 " Don't load in sandbox mode - risky, so we'll set an agressive blacklist &
@@ -154,24 +156,17 @@ let g:localvimrc_ask = 1
 let g:localvimrc_persistent = 1
 let g:localvimrc_blacklist = '/Users/mtozzi/.vim/vimrc'
 
-" *********
-" Gist
-" *********
+" Gist {{{2
 " Mac clipboard.  TODO: Detect OS and set based on that
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
 
-" *********
-" Nerd Tree
-" *********
+" Nerd Tree {{{2
 map <C-n> :NERDTreeToggle<CR>
 
 
-" *********
-" Python Mode
-" *********
-
+" Python Mode {{{2
 " Override go-to.definition key shortcut to Ctrl-]
 let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pylint_show_rate = 0
@@ -189,10 +184,7 @@ let g:pymode_rope_completion = 0
 " let g:pymode_lint_onfly = 1
 " let g:pymode_lint_cwindow = 0
 
-" *********
-" Syntastic config
-" *********
-
+" Syntastic config {{{2
 " Syntastic checker plugins
 
 let g:syntastic_aggregate_errors = 1
@@ -202,9 +194,7 @@ let g:syntastic_python_checkers=['flake8', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
 
 
-" *********
-" Sideways macro & text object
-" *********
+" Sideways macro & text object {{{2
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
 
@@ -213,25 +203,19 @@ xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
 
-" *********
-" Ultisnips config
-" *********
+" Ultisnips config {{{2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ultisnips_python_style="sphinx"
 
-" *********
-" YCM config
-" *********
+" YCM config {{{2
 let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 
-" *********
-" UTILITY FUNCTIONS
-" *********
+" UTILITY FUNCTIONS {{{1
 
 " Timestamp Sig
 if !exists("*TimeStamp")
@@ -242,15 +226,13 @@ endif
 iab MT <C-R>=TimeStamp()<cr>
 
 
-" *********
-" FILETYPE SPECIFIC STUFF
-" *********
+" FILETYPE SPECIFIC STUFF {{{1
 
-" Perl
+" Perl {{{2
 autocmd FileType perl set smartindent
 let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs)
 
-" Python
+" Python {{{2
 " autocmd FileType python compiler pylint
 
 " Trey's python stuff
@@ -267,24 +249,24 @@ let g:pyflakes_use_quickfix = 0
 " map <leader>j :RopeGotoDefinition<CR>
 " map <leader>r :RopeRename<CR>
 
-" C# and Mono
+" C# and Mono {{{2
 autocmd FileType cs setlocal noexpandtab
 
-" Jinja & Less
+" Jinja & Less {{{2
 au BufRead,BufNewFile *.j2 set filetype=htmljinja
 au BufRead,BufNewFile *.less set filetype=less
 
-" Restructured  text
+" Restructured  text {{{2
 autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
 
-" Tex/LaTeX files
+" Tex/LaTeX files {{{2
 autocmd FileType tex setlocal spell spelllang=en_us
 
-" Vimwiki
+" Vimwiki {{{2
 autocmd FileType vimwiki setlocal spell spelllang=en_us
 
-" Git commits
+" Git commits {{{2
 autocmd FileType gitcommit setlocal spell spelllang=en_us
 
-" Applescript
+" Applescript {{{2
 au BufRead,BufNewFile *.applescript set filetype=applescript
