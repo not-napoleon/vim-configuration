@@ -171,8 +171,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pylint_show_rate = 0
 let g:pymode_indent = 0
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 let g:pymode_motion = 1
+let g:pymode_indent = 1
 
 " I like the syntastic plugin's presentation of errors better
 let g:pymode_lint = 0
