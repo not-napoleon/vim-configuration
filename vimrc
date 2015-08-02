@@ -211,6 +211,13 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ultisnips_python_style="sphinx"
 
+
+" Vim Pad config {{{2
+let g:pad#dir = "~/notes/"
+let g:pad#default_format = "votl"  " Default to vim outliner...
+let g:pad#search_backend = "ag"    " Use the silver searcher
+let g:pad#title_first_line = 1     " Use the first line of the file as a tilte
+
 " YCM config {{{2
 let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
 let g:ycm_autoclose_preview_window_after_insertion = 1
