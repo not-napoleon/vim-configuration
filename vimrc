@@ -146,6 +146,12 @@ let g:clang_format#auto_formatexpr = 1
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
+" Gist {{{2
+" Mac clipboard.  TODO: Detect OS and set based on that
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
+
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
 let g:localvimrc_event = ['VimEnter']
@@ -155,12 +161,6 @@ let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 1
 let g:localvimrc_persistent = 1
 let g:localvimrc_blacklist = '/Users/mtozzi/.vim/vimrc'
-
-" Gist {{{2
-" Mac clipboard.  TODO: Detect OS and set based on that
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
-let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
 
 " Nerd Tree {{{2
 map <C-n> :NERDTreeToggle<CR>
