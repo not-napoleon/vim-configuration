@@ -217,6 +217,8 @@ let g:pad#dir = "~/notes/"
 let g:pad#default_format = "votl"  " Default to vim outliner...
 let g:pad#search_backend = "ag"    " Use the silver searcher
 let g:pad#title_first_line = 1     " Use the first line of the file as a tilte
+let g:pad#window_height = 20
+let g:pad#open_in_split = 0
 
 " YCM config {{{2
 let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
@@ -261,6 +263,9 @@ autocmd FileType tex setlocal spell spelllang=en_us
 
 " Vimwiki {{{2
 autocmd FileType vimwiki setlocal spell spelllang=en_us
+
+" Vimoutliner {{{2
+autocmd FileType votl setlocal spell spelllang=en_us
 
 " Git commits {{{2
 autocmd FileType gitcommit setlocal spell spelllang=en_us
