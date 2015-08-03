@@ -241,21 +241,10 @@ autocmd FileType perl set smartindent
 let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs)
 
 " Python {{{2
-" autocmd FileType python compiler pylint
-
-" Trey's python stuff
-" set adkeeper python style
-" note: recommendation is to do this in a ~/.vim/after/ftplugin file
 let python_highlight_all=1
-highlight BadWhitespace ctermbg=red guibg=red
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-
 " uglify chars past the 80 col limit
 au BufWinEnter *.py,*.pyw let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 let g:pyflakes_use_quickfix = 0
-" map <leader>j :RopeGotoDefinition<CR>
-" map <leader>r :RopeRename<CR>
 
 " C# and Mono {{{2
 autocmd FileType cs setlocal noexpandtab
