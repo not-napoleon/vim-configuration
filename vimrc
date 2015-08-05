@@ -216,7 +216,8 @@ let g:ultisnips_python_style="sphinx"
 let g:pad#dir = "~/notes/"
 let g:pad#default_format = "votl"  " Default to vim outliner...
 let g:pad#search_backend = "ag"    " Use the silver searcher
-let g:pad#title_first_line = 1     " Use the first line of the file as a tilte
+" Title first line setting creates duplicate entries in the pad ls view...
+" let g:pad#title_first_line = 1     " Use the first line of the file as a tilte
 let g:pad#window_height = 20
 let g:pad#open_in_split = 0
 
