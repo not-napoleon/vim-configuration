@@ -242,7 +242,16 @@ iab MT <C-R>=TimeStamp()<cr>
 " https://gist.github.com/anonymous/4149842
 function! EqualHeaderFolding()
     let thisline = getline(v:lnum)
-    if match(thisline, "^==") >= 0
+    " There must be a better way to do this...
+    if match(thisline, "^======") >= 0
+        return ">6"
+    elseif match(thisline, "^=====") >= 0
+        return ">5"
+    elseif match(thisline, "^====") >= 0
+        return ">4"
+    elseif match(thisline, "^===") >= 0
+        return ">3"
+    elseif match(thisline, "^==") >= 0
         return ">2"
     elseif match(thisline, "^=") >= 0
         return ">1"
