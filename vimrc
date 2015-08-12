@@ -236,6 +236,21 @@ if !exists("*TimeStamp")
 endif
 iab MT <C-R>=TimeStamp()<cr>
 
+" Custom folding expresion for anything using the = Header = format
+" e.g. vimwiki.  See
+" http://vimcasts.org/episodes/writing-a-custom-fold-expression/ and
+" https://gist.github.com/anonymous/4149842
+function! EqualHeaderFolding()
+    let thisline = getline(v:lnum)
+    if match(thisline, "^==") >= 0
+        return ">2"
+    elseif match(thisline, "^=") >= 0
+        return ">1"
+    else
+        return "="
+    endif
+endfunction
+
 
 " FILETYPE SPECIFIC STUFF {{{1
 
@@ -263,7 +278,7 @@ autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
 autocmd FileType tex setlocal spell spelllang=en_us
 
 " Vimwiki {{{2
-autocmd FileType vimwiki setlocal spell spelllang=en_us
+autocmd FileType vimwiki setlocal spell spelllang=en_us foldmethod=expr foldexpr=EqualHeaderFolding()
 
 " Vimoutliner {{{2
 autocmd FileType votl setlocal spell spelllang=en_us
