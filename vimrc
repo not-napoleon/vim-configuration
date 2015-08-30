@@ -224,6 +224,8 @@ let g:pad#open_in_split = 0
 " YCM config {{{2
 let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" accpet ycm config files in my code directory
+let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 
 " UTILITY FUNCTIONS {{{1
