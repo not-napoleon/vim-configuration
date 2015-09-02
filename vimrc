@@ -152,6 +152,21 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
 
+" Incsearch {{{2
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" Clear highlighting after finishing search
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
 let g:localvimrc_event = ['VimEnter']
