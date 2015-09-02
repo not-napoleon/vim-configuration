@@ -25,6 +25,7 @@ Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM a
 Plug 'rhysd/vim-clang-format'                   " Use clang formatting from within vim
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
+Plug 'tmhedberg/matchit'
 Plug 'tomtom/tcomment_vim'                      " Block commenting
 Plug 'tpope/vim-fugitive'                       " Git integration
 Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
