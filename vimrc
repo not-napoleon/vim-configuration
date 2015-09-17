@@ -66,6 +66,11 @@ set ffs="unix" " Show those ^M's when editing a windows file
 set nobackup
 set nowritebackup
 
+" Put swap files all in one place
+" The // causes vim to use the full path name for the swap file, to avoid
+" name collisions.
+set directory=$HOME/.vim/tmp//
+
 " make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
 set smartcase
