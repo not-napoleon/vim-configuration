@@ -95,6 +95,10 @@ vnoremap <Space> za
 " the cursor happens to be.
 nnoremap zO zCzO
 
+" Use jk to exit insert mode
+inoremap jk <esc>
+inoremap kj <esc>
+
 set background=dark
 colorscheme solarized
 
