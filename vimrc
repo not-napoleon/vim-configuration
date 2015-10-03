@@ -1,5 +1,3 @@
-" vim: foldmethod=marker
-
 " Plugins {{{1
 call plug#begin('~/.vim/plugged')
 
@@ -287,36 +285,60 @@ endfunction
 " FILETYPE SPECIFIC STUFF {{{1
 
 " Perl {{{2
-autocmd FileType perl set smartindent
+augroup filetype_perl
+    autocmd!
+    autocmd FileType perl set smartindent
+augroup END
 let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs)
 
 " Python {{{2
 let python_highlight_all=1
-" uglify chars past the 80 col limit
-au BufWinEnter *.py,*.pyw let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 let g:pyflakes_use_quickfix = 0
 
 " C# and Mono {{{2
-autocmd FileType cs setlocal noexpandtab
-
-" Jinja & Less {{{2
-au BufRead,BufNewFile *.j2 set filetype=htmljinja
-au BufRead,BufNewFile *.less set filetype=less
+augroup filetype_cs
+    autocmd!
+    autocmd FileType cs setlocal noexpandtab
+augroup END
 
 " Restructured  text {{{2
-autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
+augroup filetype_rst
+    autocmd!
+    autocmd FileType rst setlocal textwidth=78 spell spelllang=en_us
+augroup END
+
+" Markdown {{{2
+augroup filetype_markdown
+    autocmd!
+    autocmd FileType markdown setlocal textwidth=78 spell spelllang=en_us
+augroup END
 
 " Tex/LaTeX files {{{2
-autocmd FileType tex setlocal spell spelllang=en_us
+augroup filetype_latex
+    autocmd!
+    autocmd FileType tex setlocal spell spelllang=en_us
+augroup END
 
 " Vimwiki {{{2
-autocmd FileType vimwiki setlocal spell spelllang=en_us foldmethod=expr foldexpr=EqualHeaderFolding()
-
-" Vimoutliner {{{2
-autocmd FileType votl setlocal spell spelllang=en_us
+augroup filetype_vimwiki
+    autocmd!
+    autocmd FileType vimwiki setlocal spell spelllang=en_us foldmethod=expr foldexpr=EqualHeaderFolding()
+augroup END
 
 " Git commits {{{2
-autocmd FileType gitcommit setlocal spell spelllang=en_us
+augroup filetype_gitcommit
+    autocmd!
+    autocmd FileType gitcommit setlocal spell spelllang=en_us
+augroup END
 
 " Applescript {{{2
-au BufRead,BufNewFile *.applescript set filetype=applescript
+augroup filetype_applescript
+    autocmd!
+    au BufRead,BufNewFile *.applescript set filetype=applescript
+augroup END
+
+" Vimscript {{{2
+augroup filetype_vimscript
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
