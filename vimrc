@@ -178,12 +178,12 @@ map g# <Plug>(incsearch-nohl-g#)
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
 let g:localvimrc_event = ['VimEnter']
-" Don't load in sandbox mode - risky, so we'll set an agressive blacklist &
-" ask before loading
+" Don't load in sandbox mode - risky, so we'll ask before loading
 let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 1
 let g:localvimrc_persistent = 1
-let g:localvimrc_blacklist = '/Users/mtozzi/.vim/vimrc'
+
+let g:localvimrc_blacklist = $HOME . '/.vim/vimrc'
 
 " Nerd Tree {{{2
 map <C-n> :NERDTreeToggle<CR>
