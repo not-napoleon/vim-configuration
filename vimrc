@@ -213,9 +213,16 @@ let g:pymode_rope_completion = 0
 
 let g:syntastic_aggregate_errors = 1
 
+" Note to self: make sure pylint is running in the venv, not the system pylint
+" Also, there's a pylint plugin to play nicely with django, put this in a
+" local vimrc to use it:
+" let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
 let g:syntastic_python_checkers=['flake8', 'pylint']
 " Always populate error list
+
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 " Sideways macro & text object {{{2
