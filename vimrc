@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'Valloric/YouCompleteMe',
-    \{ 'do': './install.sh --clang-completer' }
+    \{ 'do': './install.py --clang-completer' }
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
 Plug 'elzr/vim-json'                            " Json highliting and other fun
@@ -13,9 +13,11 @@ Plug 'fmoralesc/vim-pad'                        " Notational Velocity style note
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
+Plug 'junegunn/vim-peekaboo'                    " Preview register contents
 Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
 Plug 'klen/python-mode'                         " All manner of python stuff
 Plug 'lepture/vim-jinja'                        " Jinja highlighting
+Plug 'majutsushi/tagbar'                        " Navigate by tagfile
 Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
 Plug 'mattn/webapi-vim'                         " Required by gist-vim
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
@@ -36,6 +38,7 @@ Plug 'vim-scripts/applescript.vim'              " Applescript syntax highlightin
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 Plug 'vim-scripts/vimwiki'                      " For note taking?
+Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
 
 call plug#end()
 
