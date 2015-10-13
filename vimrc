@@ -318,6 +318,13 @@ let perl_extended_vars=1 " Highlite advanced perl vars inside strings (hash refs
 let python_highlight_all=1
 let g:pyflakes_use_quickfix = 0
 
+" Ruby {{{2
+" For some reason, vim is unusably slow on ruby files
+augroup filetype_ruby
+    autocmd!
+    autocmd FileType ruby setlocal regexpengine=1 nocursorline nocursorcolumn
+augroup END
+
 " C# and Mono {{{2
 augroup filetype_cs
     autocmd!
