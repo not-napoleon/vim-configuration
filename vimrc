@@ -254,6 +254,15 @@ let g:pad#search_backend = "ag"    " Use the silver searcher
 let g:pad#window_height = 20
 let g:pad#open_in_split = 0
 
+" Better Whitespace {{{2
+" Automatically strip trailing whitespace on save for all filetypes.
+augroup plugin_better_whitespace
+    autocmd BufWritePre * StripWhitespace
+augroup END
+
+" let g:better_whitespace_filetypes_blacklist+=[]
+" default blacklist: ['diff', 'gitcommit', 'unite', 'qf', 'help']
+
 " YCM config {{{2
 let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
 let g:ycm_autoclose_preview_window_after_insertion = 1
