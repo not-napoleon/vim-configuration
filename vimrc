@@ -13,7 +13,6 @@ Plug 'fmoralesc/vim-pad'                        " Notational Velocity style note
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
-Plug 'junegunn/vim-peekaboo'                    " Preview register contents
 Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
 Plug 'klen/python-mode'                         " All manner of python stuff
 Plug 'lepture/vim-jinja'                        " Jinja highlighting
