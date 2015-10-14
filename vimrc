@@ -19,6 +19,7 @@ Plug 'lepture/vim-jinja'                        " Jinja highlighting
 Plug 'majutsushi/tagbar'                        " Navigate by tagfile
 Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
 Plug 'mattn/webapi-vim'                         " Required by gist-vim
+Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
 Plug 'rhysd/vim-clang-format'                   " Use clang formatting from within vim
@@ -149,6 +150,10 @@ let g:airline_section_y = '%{WeirdEncoding()}' " (fileencoding, fileformat)
 let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, column number)
 " let g:airline_section_warning                " (syntastic, whitespace)
 
+" Byline {{{2
+let g:bylineName='Tozzi'
+iab MT <C-R>=BylineInsert()<cr>
+
 " Clang Fomatter {{{2
 " Enable clang format with gq command
 let g:clang_format#auto_formatexpr = 1
@@ -271,14 +276,7 @@ let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 " UTILITY FUNCTIONS {{{1
 
-" Timestamp Sig
-if !exists("*TimeStamp")
-	fun TimeStamp()
-		return "--MT (" . strftime("%d %b %Y %X") . ")"
-	endfun
-endif
-iab MT <C-R>=TimeStamp()<cr>
-
+" TODO: this should be in vimwiki or markdown filetype plugin or something
 " Custom folding expresion for anything using the = Header = format
 " e.g. vimwiki.  See
 " http://vimcasts.org/episodes/writing-a-custom-fold-expression/ and
