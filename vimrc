@@ -1,4 +1,5 @@
 " Plugins {{{1
+ju
 call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
@@ -54,10 +55,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-
-" Cursor Cross-hairs!
-set cursorline
-set cursorcolumn
 
 set number " Line Numbers!
 
@@ -300,7 +297,6 @@ function! EqualHeaderFolding()
         return "="
     endif
 endfunction
-
 
 " FILETYPE SPECIFIC STUFF {{{1
 
