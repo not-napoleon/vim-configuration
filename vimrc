@@ -156,6 +156,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 " Mac clipboard.  TODO: Detect OS and set based on that
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
+let g:gist_show_privates=1
 let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
 
 " Incsearch {{{2
@@ -185,6 +186,15 @@ let g:localvimrc_blacklist = $HOME . '/.vim/vimrc'
 
 " Nerd Tree {{{2
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeRespectWildIgnore=1        " Use wildignore for nerdtree
+let g:NERDTreeShowHidden=1               " Show hidden files
+
+set wildignore+=*.pyc,*/*.egg-info/*     " Python incidentals
+set wildignore+=.git,.hg                 " Source control
+set wildignore+=*.sw?                    " Swap files
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png " Images
+set wildignore+=*.o                      " Object files
+set wildignore+=*.class                  " Java class files
 
 
 " Python Mode {{{2
