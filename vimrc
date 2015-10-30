@@ -1,5 +1,4 @@
 " Plugins {{{1
-ju
 call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
