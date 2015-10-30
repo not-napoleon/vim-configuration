@@ -16,8 +16,7 @@ Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
 Plug 'klen/python-mode', {'for': 'python'}      " All manner of python stuff
 Plug 'lepture/vim-jinja'                        " Jinja highlighting
 Plug 'majutsushi/tagbar'                        " Navigate by tagfile
-Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
-Plug 'mattn/webapi-vim'                         " Required by gist-vim
+Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
 Plug 'mhinz/vim-startify'                       " Fancy start screen
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
