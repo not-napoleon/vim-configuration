@@ -9,12 +9,11 @@ Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
 Plug 'elzr/vim-json'                            " Json highliting and other fun
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
-Plug 'fmoralesc/vim-pad'                        " Notational Velocity style note app for vim
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
-Plug 'klen/python-mode'                         " All manner of python stuff
+Plug 'klen/python-mode', {'for': 'python'}      " All manner of python stuff
 Plug 'lepture/vim-jinja'                        " Jinja highlighting
 Plug 'majutsushi/tagbar'                        " Navigate by tagfile
 Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
@@ -22,7 +21,8 @@ Plug 'mattn/webapi-vim'                         " Required by gist-vim
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
-Plug 'rhysd/vim-clang-format'                   " Use clang formatting from within vim
+Plug 'rhysd/vim-clang-format',                  " Use clang formatting from within vim
+    \{'for': ['c', 'cpp']}
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tmhedberg/matchit'
