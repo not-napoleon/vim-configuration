@@ -148,6 +148,10 @@ let g:clang_format#auto_formatexpr = 1
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
+" Eclim {{{2
+" This should make eclim's completion play nicely with YCM
+let g:EclimCompletionMethod = 'omnifunc'
+
 " Gist {{{2
 " Mac clipboard.  TODO: Detect OS and set based on that
 let g:gist_clip_command = 'pbcopy'
@@ -212,8 +216,9 @@ let g:syntastic_aggregate_errors = 1
 " local vimrc to use it:
 " let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
 let g:syntastic_python_checkers=['flake8', 'pylint']
-" Always populate error list
+let g:syntastic_java_checkers=['javac']
 
+" Always populate error list
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
