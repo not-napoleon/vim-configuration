@@ -18,6 +18,7 @@ Plug 'lepture/vim-jinja'                        " Jinja highlighting
 Plug 'majutsushi/tagbar'                        " Navigate by tagfile
 Plug 'mattn/gist-vim'                           " Post gists direct from vim! amazing!
 Plug 'mattn/webapi-vim'                         " Required by gist-vim
+Plug 'mhinz/vim-startify'                       " Fancy start screen
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
@@ -205,6 +206,11 @@ let g:pymode_rope_completion = 0
 
 " let g:pymode_lint_onfly = 1
 " let g:pymode_lint_cwindow = 0
+
+" Startify {{{2
+let g:startify_change_to_dir=0  " Don't change to the directory of the file being opened
+let g:startify_change_to_vcs_root=1  " Always start from the root of the repository (if applicable)
+let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 
 " Syntastic config {{{2
 " Syntastic checker plugins
