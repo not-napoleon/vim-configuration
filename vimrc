@@ -128,21 +128,12 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
-if !exists("*WeirdEncoding")
-    function! WeirdEncoding()
-        " Show file type and encoding, but only if they're not default
-        return printf('%s%s',
-              \ (&fenc ==? 'utf-8') ? '' : &fenc,
-              \ (&ff ==? 'unix') ? '' : '['.&ff.']')
-    endfunction
-endif
-
 " let g:airline_section_a                      " (mode, paste, iminsert)
 " let g:airline_section_b                      " (hunks, branch)
 " let g:airline_section_c'                     " (bufferline or filename)
 " let g:airline_section_gutter                 " (readonly, csv)
 let g:airline_section_x = ''                   " (tagbar, filetype, virtualenv)
-let g:airline_section_y = '%{WeirdEncoding()}' " (fileencoding, fileformat)
+"let g:airline_section_y                       " (fileencoding, fileformat)
 let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, column number)
 " let g:airline_section_warning                " (syntastic, whitespace)
 
