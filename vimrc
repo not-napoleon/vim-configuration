@@ -152,6 +152,11 @@ let g:clang_format#detect_style_file = 1
 " This should make eclim's completion play nicely with YCM
 let g:EclimCompletionMethod = 'omnifunc'
 
+" Fugitive {{{2
+" Not fugitive specific, but this is the only place I care about diffopt,
+" really
+set diffopt=filler,vertical,context:10
+
 " Gist {{{2
 " Mac clipboard.  TODO: Detect OS and set based on that
 let g:gist_clip_command = 'pbcopy'
