@@ -1,49 +1,61 @@
 " Plugins {{{1
 call plug#begin('~/.vim/plugged')
 
+" Movements, gestures and commands {{{2
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
-Plug 'SirVer/ultisnips'                         " Snippets and such
-Plug 'Valloric/YouCompleteMe',
-    \{ 'do': './install.py --clang-completer' }
-Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
-Plug 'bling/vim-airline'                        " Improved status line
-Plug 'easymotion/vim-easymotion'
-Plug 'elzr/vim-json'                            " Json highliting and other fun
-Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
-Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
-Plug 'haya14busa/incsearch.vim'                 " Better incremental search
-Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
-Plug 'klen/python-mode', {'for': 'python'}      " All manner of python stuff
-Plug 'lepture/vim-jinja'                        " Jinja highlighting
-Plug 'majutsushi/tagbar'                        " Navigate by tagfile
-Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
-Plug 'mhinz/vim-startify'                       " Fancy start screen
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'not-napoleon/vim-byline'                  " Sign your work
-Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
-Plug 'Raimondi/delimitMate'
-Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
-Plug 'rhysd/vim-clang-format',                  " Use clang formatting from within vim
-    \{'for': ['c', 'cpp']}
-Plug 'scrooloose/syntastic'                     " Flag syntax errors
-Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tmhedberg/matchit'
-Plug 'tomtom/tcomment_vim'                      " Block commenting
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'                       " Git integration
-Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
+Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
-Plug 'vimoutliner/vimoutliner'                  " For note taking
-Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
-Plug 'vim-scripts/applescript.vim'              " Applescript syntax highlighting
-Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
-Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
-Plug 'vim-scripts/vimwiki'                      " For note taking?
-Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
+Plug 'tomtom/tcomment_vim'                      " Block commenting
 
+" Filetype Support {{{2
+Plug 'elzr/vim-json' {'for': 'json'}
+Plug 'klen/python-mode', {'for': 'python'}
+Plug 'lepture/vim-jinja' {'for': 'jinja'}
+Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
+Plug 'vim-scripts/applescript.vim' {'for': 'applescript'}
+
+" Interface Mods {{{2
+Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
+Plug 'bling/vim-airline'                        " Improved status line
+Plug 'majutsushi/tagbar'                        " Navigate by tagfile
+Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
+Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
+Plug 'haya14busa/incsearch.vim'                 " Better incremental search
+Plug 'godlygeek/tabular'                        " Align text as needed
+Plug 'scrooloose/syntastic'                     " Flag syntax errors
+
+" External Systems {{{2
+Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
+Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
+Plug 'mhinz/vim-startify'                       " Fancy start screen
+Plug 'scrooloose/nerdtree'                      " Filesystem broswer
+Plug 'tpope/vim-fugitive'                       " Git integration
+Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
+Plug 'vim-scripts/vimwiki'                      " For note taking?
+
+" Completion {{{2
+Plug 'SirVer/ultisnips'                         " Snippets and such
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
+Plug 'not-napoleon/vim-byline'                  " Sign your work
+Plug 'Raimondi/delimitMate'
+
+" Meta {{{2
+Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
+Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
+Plug 'tpope/vim-dispatch'
+
+" Other {{{2
+Plug 'vimoutliner/vimoutliner'                  " For note taking
+Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
+
+" In Development {{{2
 Plug '~/code/vim-playlist'
 
 call plug#end()
