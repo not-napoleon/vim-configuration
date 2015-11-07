@@ -7,6 +7,7 @@ Plug 'Valloric/YouCompleteMe',
     \{ 'do': './install.py --clang-completer' }
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
+Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'                            " Json highliting and other fun
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
 Plug 'godlygeek/tabular'                        " Align text as needed
@@ -18,8 +19,10 @@ Plug 'lepture/vim-jinja'                        " Jinja highlighting
 Plug 'majutsushi/tagbar'                        " Navigate by tagfile
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
 Plug 'mhinz/vim-startify'                       " Fancy start screen
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
+Plug 'Raimondi/delimitMate'
 Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
 Plug 'rhysd/vim-clang-format',                  " Use clang formatting from within vim
     \{'for': ['c', 'cpp']}
@@ -27,6 +30,7 @@ Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tmhedberg/matchit'
 Plug 'tomtom/tcomment_vim'                      " Block commenting
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'                       " Git integration
 Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
