@@ -40,6 +40,8 @@ Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 Plug 'vim-scripts/vimwiki'                      " For note taking?
 Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
 
+Plug '~/code/vim-playlist'
+
 call plug#end()
 
 " Config Settings {{{1
@@ -201,6 +203,15 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png " Images
 set wildignore+=*.o                      " Object files
 set wildignore+=*.class                  " Java class files
 
+
+" Playlist {{{2
+" Prototype configuration for my playlist plugin
+map <F8> <Plug>(playlist-skip)
+map <F7> <Plug>(playlist-pause)
+map <leader>plq <Plug>(playlist-quit)
+augroup filetype_playlist
+    autocmd FileType playlist map <buffer> <F5> <Plug>(playlist-load-current)
+augroup END
 
 " Python Mode {{{2
 " Override go-to.definition key shortcut to Ctrl-]
