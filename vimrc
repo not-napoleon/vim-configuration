@@ -14,11 +14,11 @@ Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
 Plug 'tomtom/tcomment_vim'                      " Block commenting
 
 " Filetype Support {{{2
-Plug 'elzr/vim-json' {'for': 'json'}
+Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'klen/python-mode', {'for': 'python'}
-Plug 'lepture/vim-jinja' {'for': 'jinja'}
+Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
-Plug 'vim-scripts/applescript.vim' {'for': 'applescript'}
+Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
