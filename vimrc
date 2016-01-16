@@ -371,6 +371,13 @@ augroup filetype_ruby
     autocmd FileType ruby setlocal regexpengine=1 nocursorline nocursorcolumn
 augroup END
 
+" Java {{{2
+augroup filetype_java
+    autocmd!
+    autocmd FileType java setlocal foldmethod=syntax
+    autocmd FileType java setlocal textwidth=160
+augroup END
+
 " C# and Mono {{{2
 augroup filetype_cs
     autocmd!
@@ -417,4 +424,11 @@ augroup END
 augroup filetype_vimscript
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" Avro Schema Files {{{2
+" Avro uses json, so just force these to json filetype
+augroup filetype_avro
+    autocmd!
+    autocmd BufNewFile,BufRead *.avsc set filetype=json
 augroup END
