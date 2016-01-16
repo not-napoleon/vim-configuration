@@ -252,6 +252,17 @@ let g:pymode_rope_completion = 0
 let g:startify_change_to_dir=0  " Don't change to the directory of the file being opened
 let g:startify_change_to_vcs_root=1  " Always start from the root of the repository (if applicable)
 let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
+let g:startify_list_order=[
+            \ ['    Recent Sessions'], 'sessions',
+            \ ['    Most recently used in dir'], 'dir',
+            \ ['    Recently used'], 'files',
+            \ ['    Bookmarks'], 'bookmarks'
+            \ ]
+let g:startify_bookmarks=['~/.vimrc']
+let g:startify_session_persistence = 1
+
+" Trigger NERDtree to reuse the startify window (works for Ctrl-P too)
+autocmd User Startified setlocal buftype=
 
 " Syntastic config {{{2
 " Syntastic checker plugins
