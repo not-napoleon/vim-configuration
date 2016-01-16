@@ -44,7 +44,6 @@ Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
 Plug 'not-napoleon/vim-byline'                  " Sign your work
-Plug 'Raimondi/delimitMate'
 
 " Meta {{{2
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
