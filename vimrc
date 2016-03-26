@@ -64,6 +64,7 @@ Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 
 " External Systems {{{2
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
 Plug 'mhinz/vim-startify'                       " Fancy start screen
@@ -75,7 +76,7 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 
 " Meta {{{2
@@ -368,7 +369,6 @@ let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 
 " UTILITY FUNCTIONS {{{1
-
 " TODO: this should be in vimwiki or markdown filetype plugin or something
 " Custom folding expresion for anything using the = Header = format
 " e.g. vimwiki.  See
@@ -418,7 +418,7 @@ augroup END
 augroup filetype_java
     autocmd!
     autocmd FileType java setlocal foldmethod=syntax
-    autocmd FileType java setlocal textwidth=160
+    autocmd FileType java setlocal textwidth=120
 augroup END
 
 " C# and Mono {{{2
