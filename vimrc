@@ -1,10 +1,42 @@
+" Notes and Information {{{1
+" Missing documentation, installation notes, and other stuff I need to find
+" but don't have a good place for belongs here.
+"
+" text-object-left-and-right {{{2
+" There's no help file, so here's a dump of the readme:
+" This is a mirror of http://www.vim.org/scripts/script.php?script_id=3511
+"
+" This simple script create text object for left and right of a statement. e.g
+"
+" stri|ng = "Hello World"
+"
+"
+" | is where your cursor is, in command mode
+" type ciL (change inner and L for the right hand sided)
+"
+" the line will become
+"
+" string = |
+"
+" similarily
+"
+" ciH, diH, yiH etc will change, delete, yank the left hand side of the
+" statement
+"
+" this also works for ==, => as well
+"
+" Note if the line end with ',' or ';' it will be the boundary of the right
+" hand side If there is a space before the separator (=, ==, =>) or after,
+" they are so the the boundary
+
+"
 " Plugins {{{1
 call plug#begin('~/.vim/plugged')
 
 " Movements, gestures and commands {{{2
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
-Plug 'michaeljsmith/vim-indent-object'
+Plug 'michaeljsmith/vim-indent-object'          " Indent level text objects
 Plug 'tmhedberg/matchit'
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 Plug 'easymotion/vim-easymotion'
@@ -19,6 +51,7 @@ Plug 'klen/python-mode', {'for': 'python'}
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
+Plug 'dag/vim-fish', {'for': 'fish'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -31,6 +64,7 @@ Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 
 " External Systems {{{2
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
 Plug 'mhinz/vim-startify'                       " Fancy start screen
@@ -42,7 +76,7 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'rdnetto/YCM-Generator'                    " Generate build files for YCM and C-language
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 
 " Meta {{{2
@@ -53,6 +87,7 @@ Plug 'tpope/vim-dispatch'
 " Other {{{2
 Plug 'vimoutliner/vimoutliner'                  " For note taking
 Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
+Plug 'airblade/vim-rooter'                      " Automatically change to root directory
 
 " In Development {{{2
 Plug '~/code/vim-playlist'
@@ -62,6 +97,8 @@ call plug#end()
 " Config Settings {{{1
 set nocompatible " Who uses actual vi?
 
+" Start with all folds open and default to a sane fold method.  Filetypes
+" should override the fold method.
 set foldmethod=indent
 set foldlevel=99
 
@@ -80,11 +117,13 @@ set ffs="unix" " Show those ^M's when editing a windows file
 set nobackup
 set nowritebackup
 
-" Put swap files all in one place
+" Put swap files all in one place, so I don't need to git-ignore them globally
+" or in every project.
 " The // causes vim to use the full path name for the swap file, to avoid
 " name collisions.
 set directory=$HOME/.vim/tmp//
 
+" See also the incsearch plugin settings
 " make searches case-insensitive, unless they contain upper-case letters:
 set ignorecase
 set smartcase
@@ -105,6 +144,7 @@ set ttymouse=xterm2
 filetype plugin indent on
 syntax enable
 
+" Space bar toggles folds.  This is life changing.
 nnoremap <Space> za
 vnoremap <Space> za
 " Make zO recursively open whatever top level fold we're in, no matter where
@@ -260,7 +300,6 @@ let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 let g:startify_list_order=[
             \ ['    Recent Sessions'], 'sessions',
             \ ['    Most recently used in dir'], 'dir',
-            \ ['    Recently used'], 'files',
             \ ['    Bookmarks'], 'bookmarks'
             \ ]
 let g:startify_bookmarks=['~/.vimrc']
@@ -330,7 +369,6 @@ let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 
 " UTILITY FUNCTIONS {{{1
-
 " TODO: this should be in vimwiki or markdown filetype plugin or something
 " Custom folding expresion for anything using the = Header = format
 " e.g. vimwiki.  See
@@ -380,7 +418,7 @@ augroup END
 augroup filetype_java
     autocmd!
     autocmd FileType java setlocal foldmethod=syntax
-    autocmd FileType java setlocal textwidth=160
+    autocmd FileType java setlocal textwidth=120
 augroup END
 
 " C# and Mono {{{2
