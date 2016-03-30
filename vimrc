@@ -172,6 +172,9 @@ let g:clang_format#detect_style_file = 1
 " This should make eclim's completion play nicely with YCM
 let g:EclimCompletionMethod = 'omnifunc'
 
+" Disable eclim validation (which kills syntastic) for python
+let g:EclimPythonValidate = 0
+
 " Fugitive {{{2
 " Not fugitive specific, but this is the only place I care about diffopt,
 " really
