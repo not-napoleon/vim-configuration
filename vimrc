@@ -115,6 +115,9 @@ nnoremap zO zCzO
 inoremap jk <esc>
 inoremap kj <esc>
 
+" equalize windows when vim is resized
+autocmd VimResized * exe "normal! \<c-w>="
+
 set background=dark
 colorscheme solarized
 
