@@ -51,6 +51,7 @@ Plug 'klen/python-mode', {'for': 'python'}
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
+Plug 'dag/vim-fish', {'for': 'fish'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
