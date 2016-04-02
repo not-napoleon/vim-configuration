@@ -51,7 +51,8 @@ Plug 'klen/python-mode', {'for': 'python'}
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
-Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
+" Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
+Plug 'dag/vim-fish', {'for': 'fish'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -91,6 +92,7 @@ Plug 'airblade/vim-rooter'                      " Automatically change to root d
 
 " In Development {{{2
 Plug '~/code/vim-playlist'
+Plug '~/code/vim-javacomplete2'
 
 call plug#end()
 
@@ -233,10 +235,15 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 
-" JavaComplete2
-augroup JavaComplete2
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" javacomplete2 {{{2
+" would be nice to dynamically find the path to java 8, but jenv doesn't seem
+" to provide that functionality.
+call javacomplete#server#SetJVMLauncher($HOME . '.jenv/versions/oracle64-1.8.0.60/bin/java')
+
+augroup javacomplete
+    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 augroup END
+
 let g:JavaComplete_ClosingBrace = 0
 " valid choices are 'jarName' and 'packageName'
 let g:JavaComplete_ImportSortType = 'packageName'
