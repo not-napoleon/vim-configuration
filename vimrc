@@ -52,6 +52,7 @@ Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 Plug 'dag/vim-fish', {'for': 'fish'}
+Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -62,6 +63,7 @@ Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
+Plug 'lfv89/vim-interestingwords'               " Arbitrary highlights
 
 " External Systems {{{2
 Plug 'jistr/vim-nerdtree-tabs'
