@@ -238,7 +238,9 @@ map g# <Plug>(incsearch-nohl-g#)
 " javacomplete2 {{{2
 " would be nice to dynamically find the path to java 8, but jenv doesn't seem
 " to provide that functionality.
-call javacomplete#server#SetJVMLauncher($HOME . '.jenv/versions/oracle64-1.8.0.60/bin/java')
+let g:JavaComplete_JavaviDebug=1
+let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
+call javacomplete#server#SetJVMLauncher($HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java')
 
 augroup javacomplete
     autocmd Filetype java setlocal omnifunc=javacomplete#Complete
@@ -247,8 +249,7 @@ augroup END
 let g:JavaComplete_ClosingBrace = 0
 " valid choices are 'jarName' and 'packageName'
 let g:JavaComplete_ImportSortType = 'packageName'
-let g:JavaComplete_ImportOrder = ['com.', 'joptsimple.', 'kafka', 'org.',
-            \ 'java.', 'javax.']
+let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
 
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
