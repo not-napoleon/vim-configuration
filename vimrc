@@ -53,6 +53,7 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
+" Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -93,6 +94,7 @@ Plug 'airblade/vim-rooter'                      " Automatically change to root d
 
 " In Development {{{2
 Plug '~/code/vim-playlist'
+Plug '~/code/vim-javacomplete2'
 
 call plug#end()
 
@@ -210,13 +212,6 @@ let g:clang_format#auto_formatexpr = 1
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
-" Eclim {{{2
-" This should make eclim's completion play nicely with YCM
-let g:EclimCompletionMethod = 'omnifunc'
-
-" Disable eclim validation (which kills syntastic) for python
-let g:EclimPythonValidate = 0
-
 " Fugitive {{{2
 " Not fugitive specific, but this is the only place I care about diffopt,
 " really
@@ -243,6 +238,23 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+
+" javacomplete2 {{{2
+" would be nice to dynamically find the path to java 8, but jenv doesn't seem
+" to provide that functionality.
+let g:JavaComplete_JavaviDebug=1
+let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
+call javacomplete#server#SetJVMLauncher($HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java')
+
+augroup javacomplete
+    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+augroup END
+
+let g:JavaComplete_ClosingBrace = 0
+" valid choices are 'jarName' and 'packageName'
+let g:JavaComplete_ImportSortType = 'packageName'
+let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
 
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
