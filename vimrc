@@ -501,7 +501,7 @@ augroup filetype_java
     autocmd!
     autocmd FileType java setlocal foldmethod=syntax
     autocmd FileType java setlocal textwidth=90
-    autocmd FileType java let b:lengthmatters_start_at_column=120
+    autocmd FileType java let g:lengthmatters_start_at_column=120
 augroup END
 
 " C# and Mono {{{2
