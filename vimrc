@@ -1,3 +1,22 @@
+" Preamble {{{
+" .vimrc
+" Author: Mark Tozzi
+" Source: https://github.com/not-napoleon/vim-configuration/blob/master/vimrc
+"
+" In addition to the plugins listed below, parts of this file have been lifted
+" from various coworkers, friends  and internet sources over the years.  A
+" partial list follows:
+"
+" [1] https://github.com/DanielleSucher/dotfiles/blob/master/vim/vimrc
+" [2] https://github.com/jonafato/dotfiles/blob/master/vimrc
+" [3] https://github.com/johnbenjaminlewis/dotfiles/blob/master/.vimrc
+" [4] https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
+"
+" To the best of my knowledge, all sources are used with permission.
+"
+" Original parts of this file are free to use under the MIT license
+" (https://opensource.org/licenses/MIT)
+"
 " Notes and Information {{{1
 " Missing documentation, installation notes, and other stuff I need to find
 " but don't have a good place for belongs here.
@@ -125,7 +144,24 @@ set nowritebackup
 " or in every project.
 " The // causes vim to use the full path name for the swap file, to avoid
 " name collisions.
-set directory=$HOME/.vim/tmp//
+"
+" Auto directory creation from [4] above
+
+set undodir=$HOME/.vim/tmp/undo//     " undo files
+set backupdir=$HOME/.vim/tmp/backup// " backups
+set directory=$HOME/.vim/tmp/swap//   " swap files
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
 
 " See also the incsearch plugin settings
 " make searches case-insensitive, unless they contain upper-case letters:
@@ -148,7 +184,7 @@ set ttymouse=xterm2
 filetype plugin indent on
 syntax enable
 
-" Space bar toggles folds.  This is life changing.
+" Space bar toggles folds.  This is life changing. [3]
 nnoremap <Space> za
 vnoremap <Space> za
 " Make zO recursively open whatever top level fold we're in, no matter where
@@ -172,6 +208,21 @@ colorscheme solarized
 " highlighting too long lines (and plugin config should unset
 " g:lengthmatters_use_textwidth)
 set formatoptions=croq
+
+
+" Show whitespace characters with neat unicode [4]
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set nowrap
+" nolist is necessary because list breaks linebreak, because of course it
+" does. See http://vimcasts.org/episodes/soft-wrapping-text/
+command! -nargs=* Wrap set wrap linebreak nolist
+set showbreak=…
+
+" Upper case current word.  This is inspired by a mapping by Steve Losh,
+" adapted slightly to how I like to work
+inoremap <c-u> <esc>gUiwea
+nnoremap <c-u> gUiwe
 
 " PLUGIN CONFIGURATION {{{1
 
@@ -395,6 +446,11 @@ let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 
 " UTILITY FUNCTIONS {{{1
+
+" reselect text just pasted with gp [1]
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+
 " TODO: this should be in vimwiki or markdown filetype plugin or something
 " Custom folding expresion for anything using the = Header = format
 " e.g. vimwiki.  See
