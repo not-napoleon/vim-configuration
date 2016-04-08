@@ -165,6 +165,14 @@ autocmd VimResized * exe "normal! \<c-w>="
 set background=dark
 colorscheme solarized
 
+" Format options:
+" Wrap lines to textwidth in comments while typing, by default.  Non-code file
+" types should override this.  Given this, code file types should set
+" textwidth to the comment width and g:lengthmatters_start_at_column for
+" highlighting too long lines (and plugin config should unset
+" g:lengthmatters_use_textwidth)
+set formatoptions=croq
+
 " PLUGIN CONFIGURATION {{{1
 
 " Airline config {{{2
@@ -192,14 +200,14 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
-" let g:airline_section_a                      " (mode, paste, iminsert)
-" let g:airline_section_b                      " (hunks, branch)
-" let g:airline_section_c'                     " (bufferline or filename)
-" let g:airline_section_gutter                 " (readonly, csv)
-let g:airline_section_x = ''                   " (tagbar, filetype, virtualenv)
-"let g:airline_section_y                       " (fileencoding, fileformat)
-let g:airline_section_z = 'c:%c %p%%'          " (percentage, line number, column number)
-" let g:airline_section_warning                " (syntastic, whitespace)
+" let g:airline_section_a                        " (mode, paste, iminsert)
+" let g:airline_section_b                        " (hunks, branch)
+" let g:airline_section_c'                       " (bufferline or filename)
+" let g:airline_section_gutter                   " (readonly, csv)
+let g:airline_section_x = 'fo:%{&formatoptions}' " (tagbar, filetype, virtualenv)
+"let g:airline_section_y                         " (fileencoding, fileformat)
+let g:airline_section_z = 'c:%c %p%%'            " (percentage, line number, column number)
+" let g:airline_section_warning                  " (syntastic, whitespace)
 
 " Byline {{{2
 let g:bylineName='Tozzi'
@@ -255,6 +263,10 @@ let g:JavaComplete_ClosingBrace = 0
 " valid choices are 'jarName' and 'packageName'
 let g:JavaComplete_ImportSortType = 'packageName'
 let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
+
+" lengthmatters {{{2
+let g:lengthmatters_use_textwidth=0
+let g:lengthmatters_start_at_column=79  " good default
 
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
@@ -432,7 +444,8 @@ augroup END
 augroup filetype_java
     autocmd!
     autocmd FileType java setlocal foldmethod=syntax
-    autocmd FileType java setlocal textwidth=120
+    autocmd FileType java setlocal textwidth=90
+    autocmd FileType java let b:lengthmatters_start_at_column=120
 augroup END
 
 " C# and Mono {{{2
