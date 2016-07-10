@@ -391,6 +391,7 @@ let g:startify_list_order=[
             \ ]
 let g:startify_bookmarks=['~/.vimrc']
 let g:startify_session_persistence = 1
+let g:startify_session_dir = '~/.vim/tmp/session'
 
 " Trigger NERDtree to reuse the startify window (works for Ctrl-P too)
 autocmd User Startified setlocal buftype=
