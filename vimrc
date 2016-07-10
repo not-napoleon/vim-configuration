@@ -11,6 +11,7 @@
 " [2] https://github.com/jonafato/dotfiles/blob/master/vimrc
 " [3] https://github.com/johnbenjaminlewis/dotfiles/blob/master/.vimrc
 " [4] https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
+" [5] http://stackoverflow.com/a/1270689
 "
 " To the best of my knowledge, all sources are used with permission.
 "
@@ -72,6 +73,7 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
+" Currently using a fork of:
 " Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
 
 " Interface Mods {{{2
@@ -315,6 +317,14 @@ let g:JavaComplete_ClosingBrace = 0
 let g:JavaComplete_ImportSortType = 'packageName'
 let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
 
+" Should be the default, but just in case
+let g:JavaComplete_MavenRepositoryDisable = 0
+if exists('g:JavaComplete_LibsPath')
+    let g:JavaComplete_LibsPath .= ":" . $HOME . "/.m2/repository"
+else
+    let g:JavaComplete_LibsPath = ":" . $HOME . "/.m2/repository"
+endif
+
 " lengthmatters {{{2
 let g:lengthmatters_use_textwidth=0
 let g:lengthmatters_start_at_column=79  " good default
@@ -449,6 +459,29 @@ let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 " reselect text just pasted with gp [1]
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+
+" highlight duplicate lines from [5].  Useful for spotting refactoring
+" candidates.
+function! HighlightRepeats() range
+  let lineCounts = {}
+  let lineNum = a:firstline
+  while lineNum <= a:lastline
+    let lineText = getline(lineNum)
+    if lineText != ""
+      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+    endif
+    let lineNum = lineNum + 1
+  endwhile
+  exe 'syn clear Repeat'
+  for lineText in keys(lineCounts)
+    if lineCounts[lineText] >= 2
+      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+    endif
+  endfor
+endfunction
+
+command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
 
 
 " TODO: this should be in vimwiki or markdown filetype plugin or something
