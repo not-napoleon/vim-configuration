@@ -73,8 +73,9 @@ Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
-" Currently using a fork of:
-" Plug 'artur-shaik/vim-javacomplete2', {'for': 'java'}
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -115,7 +116,6 @@ Plug 'airblade/vim-rooter'                      " Automatically change to root d
 
 " In Development {{{2
 Plug '~/code/vim-playlist'
-Plug '~/code/vim-javacomplete2'
 
 call plug#end()
 
@@ -322,7 +322,7 @@ let g:JavaComplete_MavenRepositoryDisable = 0
 if exists('g:JavaComplete_LibsPath')
     let g:JavaComplete_LibsPath .= ":" . $HOME . "/.m2/repository"
 else
-    let g:JavaComplete_LibsPath = ":" . $HOME . "/.m2/repository"
+    let g:JavaComplete_LibsPath = $HOME . "/.m2/repository"
 endif
 
 " lengthmatters {{{2
