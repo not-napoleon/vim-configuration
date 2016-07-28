@@ -12,6 +12,7 @@
 " [3] https://github.com/johnbenjaminlewis/dotfiles/blob/master/.vimrc
 " [4] https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
 " [5] http://stackoverflow.com/a/1270689
+" [6] http://vim.wikia.com/wiki/List_loaded_scripts
 "
 " To the best of my knowledge, all sources are used with permission.
 "
@@ -483,6 +484,32 @@ function! HighlightRepeats() range
 endfunction
 
 command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
+
+" Get currently loaded scripts in a buffer, via [6]
+" Execute 'cmd' while redirecting output.
+" Delete all lines that do not match regex 'filter' (if not empty).
+" Delete any blank lines.
+" Delete '<whitespace><number>:<whitespace>' from start of each line.
+" Display result in a scratch buffer.
+function! s:Filter_lines(cmd, filter)
+    let save_more = &more
+    set nomore
+    redir => lines
+    silent execute a:cmd
+    redir END
+    let &more = save_more
+    new
+    setlocal buftype=nofile bufhidden=hide noswapfile
+    put =lines
+    g/^\s*$/d
+    %s/^\s*\d\+:\s*//e
+    if !empty(a:filter)
+        execute 'v/' . a:filter . '/d'
+    endif
+    0
+endfunction
+command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
 
 
 " TODO: this should be in vimwiki or markdown filetype plugin or something
