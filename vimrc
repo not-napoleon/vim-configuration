@@ -274,6 +274,9 @@ let g:clang_format#auto_formatexpr = 1
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
+" CtrlP {{{2
+let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
+
 " Fugitive {{{2
 " Not fugitive specific, but this is the only place I care about diffopt,
 " really
@@ -384,7 +387,6 @@ let g:pymode_rope_completion = 0
 " Startify {{{2
 let g:startify_change_to_dir=0  " Don't change to the directory of the file being opened
 let g:startify_change_to_vcs_root=1  " Always start from the root of the repository (if applicable)
-let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 let g:startify_list_order=[
             \ ['    Recent Sessions'], 'sessions',
             \ ['    Most recently used in dir'], 'dir',
