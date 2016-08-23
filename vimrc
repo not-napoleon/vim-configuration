@@ -121,7 +121,11 @@ Plug '~/code/vim-playlist'
 call plug#end()
 
 " Config Settings {{{1
-set nocompatible " Who uses actual vi?
+if !has("nvim")
+    set nocompatible    " Who uses actual vi?
+    set ttyfast         " Send more characters for redraws
+    set ttymouse=xterm2
+endif
 
 " Start with all folds open and default to a sane fold method.  Filetypes
 " should override the fold method.
@@ -175,13 +179,10 @@ set incsearch
 
 set backspace=indent,eol,start " Make backspace not suck
 
-set ttyfast " Send more characters for redraws
-
 set mouse=a " Enable mouse use in all modes
 
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
 
 
 filetype plugin indent on
