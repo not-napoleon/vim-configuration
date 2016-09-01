@@ -56,40 +56,39 @@ call plug#begin('~/.vim/plugged')
 
 " Movements, gestures and commands {{{2
 Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
+Plug 'easymotion/vim-easymotion'                " Fast in document movement
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'michaeljsmith/vim-indent-object'          " Indent level text objects
 Plug 'tmhedberg/matchit'
-Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
-Plug 'easymotion/vim-easymotion'
+Plug 'tomtom/tcomment_vim'                      " Block commenting
 Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
-Plug 'tomtom/tcomment_vim'                      " Block commenting
-Plug 'easymotion/vim-easymotion'                " Fast in document movement
+Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 
 " Filetype Support {{{2
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'cespare/vim-toml'
+Plug 'dag/vim-fish', {'for': 'fish'}
+Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'klen/python-mode', {'for': 'python'}
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
-Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
-Plug 'dag/vim-fish', {'for': 'fish'}
-Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 
 " Interface Mods {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
-Plug 'majutsushi/tagbar'                        " Navigate by tagfile
-Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
-Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
-Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'godlygeek/tabular'                        " Align text as needed
-Plug 'scrooloose/syntastic'                     " Flag syntax errors
+Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'lfv89/vim-interestingwords'               " Arbitrary highlights
+Plug 'majutsushi/tagbar'                        " Navigate by tagfile
 Plug 'mbbill/undotree'                          " Visualize vim's undo tree
+Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
+Plug 'scrooloose/syntastic'                     " Flag syntax errors
+Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
 
 " External Systems {{{2
 Plug 'jistr/vim-nerdtree-tabs'
@@ -104,18 +103,18 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'not-napoleon/vim-byline'                  " Sign your work
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " Meta {{{2
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
-Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 
 " Other {{{2
-Plug 'vimoutliner/vimoutliner'                  " For note taking
-Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 Plug 'airblade/vim-rooter'                      " Automatically change to root directory
+Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
+Plug 'vimoutliner/vimoutliner'                  " For note taking
 
 " In Development {{{2
 Plug '~/code/vim-playlist'
