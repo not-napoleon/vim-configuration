@@ -65,6 +65,7 @@ Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
 Plug 'tomtom/tcomment_vim'                      " Block commenting
+Plug 'easymotion/vim-easymotion'                " Fast in document movement
 
 " Filetype Support {{{2
 Plug 'elzr/vim-json', {'for': 'json'}
@@ -88,6 +89,7 @@ Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'lfv89/vim-interestingwords'               " Arbitrary highlights
+Plug 'mbbill/undotree'                          " Visualize vim's undo tree
 
 " External Systems {{{2
 Plug 'jistr/vim-nerdtree-tabs'
