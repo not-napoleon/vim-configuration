@@ -182,10 +182,6 @@ set backspace=indent,eol,start " Make backspace not suck
 
 set mouse=a " Enable mouse use in all modes
 
-" Set this to the name of your terminal that supports mouse codes.
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-
-
 filetype plugin indent on
 syntax enable
 
@@ -278,6 +274,14 @@ let g:clang_format#detect_style_file = 1
 
 " CtrlP {{{2
 let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
+
+"Easy Motion {{{2
+
+"Replace f, F, t, T with their easy motion variants for all modes
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
 
 " Fugitive {{{2
 " Not fugitive specific, but this is the only place I care about diffopt,
