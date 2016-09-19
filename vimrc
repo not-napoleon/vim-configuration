@@ -278,10 +278,10 @@ let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 "Easy Motion {{{2
 
 "Replace f, F, t, T with their easy motion variants for all modes
-map f <Plug>(easymotion-f)
-map F <Plug>(easymotion-F)
-map t <Plug>(easymotion-t)
-map T <Plug>(easymotion-T)
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
+map t <Plug>(easymotion-tl)
+map T <Plug>(easymotion-Tl)
 
 " Fugitive {{{2
 " Not fugitive specific, but this is the only place I care about diffopt,
