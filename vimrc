@@ -416,6 +416,7 @@ let g:syntastic_aggregate_errors = 1
 " let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
 let g:syntastic_python_checkers=['flake8', 'pylint']
 let g:syntastic_java_checkers=['javac']
+let g:syntastic_json_checkers=['jsonlint']
 
 " Always populate error list
 let g:syntastic_always_populate_loc_list = 1
