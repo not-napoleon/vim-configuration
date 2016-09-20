@@ -1,4 +1,5 @@
 " Preamble {{{
+" vim: set foldlevel=0:
 " .vimrc
 " Author: Mark Tozzi
 " Source: https://github.com/not-napoleon/vim-configuration/blob/master/vimrc
@@ -225,7 +226,7 @@ set showbreak=…
 inoremap <c-u> <esc>gUiwea
 nnoremap <c-u> gUiwe
 
-" PLUGIN CONFIGURATION {{{1
+" Plugin Configuration {{{1
 
 " Airline config {{{2
 " Status line settings
@@ -466,7 +467,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 
-" UTILITY FUNCTIONS {{{1
+" Utility Functions {{{1
 
 " reselect text just pasted with gp [1]
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -520,7 +521,6 @@ function! s:Filter_lines(cmd, filter)
 endfunction
 command! -nargs=? Scriptnames call s:Filter_lines('scriptnames', <q-args>)
 
-
 " TODO: this should be in vimwiki or markdown filetype plugin or something
 " Custom folding expresion for anything using the = Header = format
 " e.g. vimwiki.  See
@@ -546,7 +546,7 @@ function! EqualHeaderFolding()
     endif
 endfunction
 
-" FILETYPE SPECIFIC STUFF {{{1
+" Filetype Specific Stuff {{{1
 
 " Perl {{{2
 augroup filetype_perl
