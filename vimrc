@@ -127,6 +127,10 @@ if !has("nvim")
     set nocompatible    " Who uses actual vi?
     set ttyfast         " Send more characters for redraws
     set ttymouse=xterm2
+else
+    " TODO check if the virtual envs exist, and if not create them
+    let g:python2_host_prog=$HOME . "/.virtualenvs/neovim/bin/python2"
+    let g:python3_host_prog=$HOME . "/.virtualenvs/neovim-python3/bin/python3"
 endif
 
 " Start with all folds open and default to a sane fold method.  Filetypes
@@ -627,4 +631,10 @@ augroup END
 augroup filetype_avro
     autocmd!
     autocmd BufNewFile,BufRead *.avsc set filetype=json
+augroup END
+
+" Asciidoc {{{2
+augroup filetype_asciidoc
+    autocmd!
+    autocmd FileType markdown setlocal spell spelllang=en_us
 augroup END
