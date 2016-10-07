@@ -103,9 +103,9 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'not-napoleon/vim-byline'                  " Sign your work
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " Meta {{{2
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
@@ -279,6 +279,9 @@ let g:clang_format#detect_style_file = 1
 
 " CtrlP {{{2
 let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
+
+" Deoplete {{{2
+let g:deoplete#enable_at_startup = 1
 
 "Easy Motion {{{2
 
