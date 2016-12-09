@@ -80,7 +80,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 
 " Interface Mods {{{2
-Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
 Plug 'bling/vim-airline'                        " Improved status line
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
@@ -90,6 +89,19 @@ Plug 'mbbill/undotree'                          " Visualize vim's undo tree
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
+
+" Colorschemes {{{2
+Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
+Plug 'blueshirts/darcula'
+Plug 'freeo/vim-kalisi'
+Plug 'jscappini/material.vim'
+Plug 'michalbachowski/vim-wombat256mod'
+Plug 'romainl/Apprentice'
+Plug 'Sclarki/neonwave.vim'
+Plug 'vim-scripts/Perfect-Dark'
+Plug 'vim-scripts/moria'
+Plug 'xero/blaquemagick.vim'
+Plug 'xero/sourcerer.vim'
 
 " External Systems {{{2
 Plug 'jistr/vim-nerdtree-tabs'
@@ -204,8 +216,9 @@ inoremap kj <esc>
 " equalize windows when vim is resized
 autocmd VimResized * exe "normal! \<c-w>="
 
+set t_Co=256
+colorscheme wombat256mod
 set background=dark
-colorscheme solarized
 
 " Format options:
 " Wrap lines to textwidth in comments while typing, by default.  Non-code file
@@ -231,7 +244,6 @@ inoremap <c-u> <esc>gUiwea
 nnoremap <c-u> gUiwe
 
 " Plugin Configuration {{{1
-
 " Airline config {{{2
 " Status line settings
 
