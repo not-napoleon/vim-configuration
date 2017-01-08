@@ -141,7 +141,7 @@ if !has("nvim")
     set ttymouse=xterm2
 else
     " TODO check if the virtual envs exist, and if not create them
-    let g:python2_host_prog=$HOME . "/.virtualenvs/neovim/bin/python2"
+    let g:python_host_prog=$HOME . "/.virtualenvs/neovim/bin/python2"
     let g:python3_host_prog=$HOME . "/.virtualenvs/neovim-python3/bin/python3"
 endif
 
@@ -295,6 +295,25 @@ let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 " Deoplete {{{2
 let g:deoplete#enable_at_startup = 1
 
+" from the javacomplete2 wiki
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+let g:deoplete#omni#input_patterns.java = [
+    \'[^. \t0-9]\.\w*',
+    \'[^. \t0-9]\->\w*',
+    \'[^. \t0-9]\::\w*',
+    \]
+let g:deoplete#omni#input_patterns.jsp = ['[^. \t0-9]\.\w*']
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources._ = ['javacomplete2']
+
+let g:deoplete#enable_profile = 1
+call deoplete#enable_logging('DEBUG', '~/deoplete.log')
+call deoplete#custom#set('jedi', 'debug_enabled', 1)
+call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
+
 "Easy Motion {{{2
 
 "Replace f, F, t, T with their easy motion variants for all modes
@@ -336,11 +355,10 @@ map g# <Plug>(incsearch-nohl-g#)
 " to provide that functionality.
 let g:JavaComplete_JavaviDebug=1
 let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
+" TODO: Make sure this path exists, and maybe error if it doesn't?
 call javacomplete#server#SetJVMLauncher($HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java')
 
-augroup javacomplete
-    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-augroup END
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 
 let g:JavaComplete_ClosingBrace = 0
 " valid choices are 'jarName' and 'packageName'
@@ -452,6 +470,9 @@ omap aa <Plug>SidewaysArgumentTextobjA
 xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
+
+" SuperTab {{{2
+let g:SuperTabDefaultCompletionType="<c-n>"
 
 " Ultisnips config {{{2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
