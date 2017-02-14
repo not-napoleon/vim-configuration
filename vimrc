@@ -68,7 +68,8 @@ Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 
 " Filetype Support {{{2
-Plug 'artur-shaik/vim-javacomplete2'
+" Plug 'artur-shaik/vim-javacomplete2'
+" Plug '~/code/vim-javacomplete2-mine'
 Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
@@ -307,12 +308,36 @@ let g:deoplete#omni#input_patterns.java = [
     \]
 let g:deoplete#omni#input_patterns.jsp = ['[^. \t0-9]\.\w*']
 let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['javacomplete2']
+" let g:deoplete#ignore_sources._ = ['javacomplete2']
 
 let g:deoplete#enable_profile = 1
-call deoplete#enable_logging('DEBUG', '~/deoplete.log')
+call deoplete#enable_logging('DEBUG', $HOME + '/deoplete.log')
 call deoplete#custom#set('jedi', 'debug_enabled', 1)
 call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
+
+" javacomplete2 {{{2
+" would be nice to dynamically find the path to java 8, but jenv doesn't seem
+" to provide that functionality.
+let g:JavaComplete_JavaviDebug=1
+let g:JavaComplete_JavaviLogLevel="DEBUG"
+let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
+" TODO: Make sure this path exists, and maybe error if it doesn't?
+call javacomplete#server#SetJVMLauncher($HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java')
+
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+
+let g:JavaComplete_ClosingBrace = 0
+" valid choices are 'jarName' and 'packageName'
+let g:JavaComplete_ImportSortType = 'packageName'
+let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
+
+" Should be the default, but just in case
+let g:JavaComplete_MavenRepositoryDisable = 0
+if exists('g:JavaComplete_LibsPath')
+    let g:JavaComplete_LibsPath .= ":" . $HOME . "/.m2/repository"
+else
+    let g:JavaComplete_LibsPath = $HOME . "/.m2/repository"
+endif
 
 "Easy Motion {{{2
 
@@ -349,29 +374,6 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-
-" javacomplete2 {{{2
-" would be nice to dynamically find the path to java 8, but jenv doesn't seem
-" to provide that functionality.
-let g:JavaComplete_JavaviDebug=1
-let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
-" TODO: Make sure this path exists, and maybe error if it doesn't?
-call javacomplete#server#SetJVMLauncher($HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java')
-
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
-let g:JavaComplete_ClosingBrace = 0
-" valid choices are 'jarName' and 'packageName'
-let g:JavaComplete_ImportSortType = 'packageName'
-let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
-
-" Should be the default, but just in case
-let g:JavaComplete_MavenRepositoryDisable = 0
-if exists('g:JavaComplete_LibsPath')
-    let g:JavaComplete_LibsPath .= ":" . $HOME . "/.m2/repository"
-else
-    let g:JavaComplete_LibsPath = $HOME . "/.m2/repository"
-endif
 
 " lengthmatters {{{2
 let g:lengthmatters_use_textwidth=0
@@ -611,7 +613,7 @@ augroup filetype_java
     autocmd!
     autocmd FileType java setlocal foldmethod=syntax
     autocmd FileType java setlocal textwidth=90
-    autocmd FileType java let g:lengthmatters_start_at_column=120
+    autocmd FileType java let g:lengthmatters_start_at_column=100
 augroup END
 
 " C# and Mono {{{2
