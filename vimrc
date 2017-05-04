@@ -82,6 +82,7 @@ Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
 
 " Interface Mods {{{2
 Plug 'bling/vim-airline'                        " Improved status line
+Plug 'embear/vim-foldsearch'
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'lfv89/vim-interestingwords'               " Arbitrary highlights
