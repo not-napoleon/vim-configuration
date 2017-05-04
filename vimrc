@@ -79,6 +79,8 @@ Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
+Plug 'rdolgushin/groovy.vim', {'for': 'groovy'}
+Plug 'vim-scripts/groovyindent-unix', {'for': 'groovy'}
 
 " Interface Mods {{{2
 Plug 'bling/vim-airline'                        " Improved status line
