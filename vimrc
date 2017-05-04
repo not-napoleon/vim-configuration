@@ -674,5 +674,6 @@ augroup END
 " Asciidoc {{{2
 augroup filetype_asciidoc
     autocmd!
-    autocmd FileType markdown setlocal spell spelllang=en_us
+    autocmd FileType asciidoc setlocal spell spelllang=en_us
+    autocmd FileType asciidoc setlocal fo+=t textwidth=79
 augroup END
