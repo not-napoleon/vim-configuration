@@ -119,6 +119,7 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
+Plug 'honza/vim-snippets'                       " Actual snippets
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'not-napoleon/vim-byline'                  " Sign your work
