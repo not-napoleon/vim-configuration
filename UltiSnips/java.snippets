@@ -1,0 +1,78 @@
+global !p
+def nl(snip):
+	if snip.opt("g:ultisnips_java_brace_style", "") == "nl":
+		snip += ""
+	else:
+		snip.rv += " "
+def getArgs(group):
+	import re
+	word = re.compile('[a-zA-Z0-9><.]+ \w+')
+	return [i.split(" ") for i in word.findall(group) ]
+
+def camel(word):
+	if not word: return ''
+	return word[0].upper() + word[1:]
+
+def mixedCase(word):
+	if not word: return ''
+	return word[0].lower() + word[1:]
+
+def getMembers(group):
+	import re
+	word = re.compile('private [a-zA-Z0-9><.]+ \w+')
+	retval = []
+	for member in word.findall(group):
+		parts = member.split(" ")
+		retval.append((parts[-2], parts[-1]))
+	return retval
+endglobal
+
+
+snippet builder "builder object and constructor from list of members" b
+`!p classname = snip.basename or "untitled"`
+public static class `!p
+snip.rv = classname`Builder {
+	${1:${VISUAL}}
+
+	public `!p snip.rv = classname`Builder() {
+	}
+`!p
+args = getMembers(t[1])
+if len(args) == 0: snip.rv = ""
+snip.shift()
+for i in args:
+	snip.rv += "\n"
+	snip.rv += snip.mkline("public " + classname + "Builder set" + camel(i[1]) + "(" + i[0] + " " + i[1] + ") {")
+	snip.shift()
+	snip.rv += "\n" + snip.mkline("this." + i[1] + " = " + i[1] + ";")
+	snip.rv += "\n" + snip.mkline("return this;")
+	snip.unshift()
+	snip.rv += "\n" + snip.mkline("}")
+`
+}
+`!p
+args = getMembers(t[1])
+if len(args) == 0:
+	snip.rv = ""
+for i in args:
+	snip.rv += "\n"
+	snip.rv += snip.mkline("private " + i[0] + " " + i[1]+ ";")
+if len(args) > 0:
+	snip.rv += "\n"`
+
+`!p
+snip.rv += snip.mkline("public " + classname + "(" + classname + "Builder builder)" + "{")
+args = getMembers(t[1])
+snip.shift()
+for i in args:
+	snip.rv += "\n"
+	snip.rv += snip.mkline("this." + i[1] + " = builder." + i[1] + ";")
+if len(args) == 0:
+	snip.rv += "\n"
+snip.unshift()
+snip.rv += "\n" + snip.mkline("}")
+`
+$0
+endsnippet
+
+
