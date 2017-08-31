@@ -93,6 +93,7 @@ Plug 'mbbill/undotree'                          " Visualize vim's undo tree
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
+" Plug 'w0rp/ale'
 
 " Colorschemes {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -283,6 +284,7 @@ let g:airline_section_x = 'fo:%{&formatoptions}' " (tagbar, filetype, virtualenv
 let g:airline_section_z = 'c:%c %p%%'            " (percentage, line number, column number)
 " let g:airline_section_warning                  " (syntastic, whitespace)
 
+
 " Byline {{{2
 let g:bylineName='Tozzi'
 iab MT <C-R>=BylineInsert()<cr>
@@ -315,7 +317,7 @@ let g:deoplete#ignore_sources = {}
 " let g:deoplete#ignore_sources._ = ['javacomplete2']
 
 let g:deoplete#enable_profile = 1
-call deoplete#enable_logging('DEBUG', $HOME + '/deoplete.log')
+" call deoplete#enable_logging('DEBUG', $HOME + '/deoplete.log')
 call deoplete#custom#set('jedi', 'debug_enabled', 1)
 call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
 
@@ -325,8 +327,8 @@ call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
 let g:JavaComplete_JavaviDebug=1
 let g:JavaComplete_JavaviLogLevel="DEBUG"
 let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
-" TODO: Make sure this path exists, and maybe error if it doesn't?
-call javacomplete#server#SetJVMLauncher($HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java')
+let java8_path = $HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java'
+call javacomplete#server#SetJVMLauncher($java8_path)
 
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 
@@ -337,11 +339,6 @@ let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
 
 " Should be the default, but just in case
 let g:JavaComplete_MavenRepositoryDisable = 0
-if exists('g:JavaComplete_LibsPath')
-    let g:JavaComplete_LibsPath .= ":" . $HOME . "/.m2/repository"
-else
-    let g:JavaComplete_LibsPath = $HOME . "/.m2/repository"
-endif
 
 "Easy Motion {{{2
 
