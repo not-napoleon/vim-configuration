@@ -104,6 +104,7 @@ Plug 'vim-scripts/Perfect-Dark'
 Plug 'vim-scripts/moria'
 Plug 'xero/blaquemagick.vim'
 Plug 'xero/sourcerer.vim'
+Plug '/TroyFletcher/vim-colors-synthwave/'
 
 " External Systems {{{2
 Plug 'jistr/vim-nerdtree-tabs'
