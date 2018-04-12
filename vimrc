@@ -484,10 +484,10 @@ augroup END
 " default blacklist: ['diff', 'gitcommit', 'unite', 'qf', 'help']
 
 " YCM config {{{2
-let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 " accpet ycm config files in my code directory
-let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
+" let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
 
 
 " Utility Functions {{{1
