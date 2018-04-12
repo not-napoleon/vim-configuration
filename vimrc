@@ -68,8 +68,6 @@ Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
 Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 
 " Filetype Support {{{2
-" Plug 'artur-shaik/vim-javacomplete2'
-" Plug '~/code/vim-javacomplete2-mine'
 Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish', {'for': 'fish'}
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
@@ -307,38 +305,20 @@ let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_refresh_always = 1
 let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-let g:deoplete#omni#input_patterns.java = [
-    \'[^. \t0-9]\.\w*',
-    \'[^. \t0-9]\->\w*',
-    \'[^. \t0-9]\::\w*',
-    \]
+" let g:deoplete#omni#input_patterns.java = [
+"     \'[^. \t0-9]\.\w*',
+"     \'[^. \t0-9]\->\w*',
+"     \'[^. \t0-9]\::\w*',
+"     \]
 let g:deoplete#omni#input_patterns.jsp = ['[^. \t0-9]\.\w*']
 let g:deoplete#ignore_sources = {}
 " let g:deoplete#ignore_sources._ = ['javacomplete2']
 
 let g:deoplete#enable_profile = 1
 " call deoplete#enable_logging('DEBUG', $HOME + '/deoplete.log')
+" call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
 call deoplete#custom#set('jedi', 'debug_enabled', 1)
-call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
 
-" javacomplete2 {{{2
-" would be nice to dynamically find the path to java 8, but jenv doesn't seem
-" to provide that functionality.
-let g:JavaComplete_JavaviDebug=1
-let g:JavaComplete_JavaviLogLevel="DEBUG"
-let g:JavaComplete_JavaviLogfileDirectory=$HOME . '/javacompletelogs'
-let java8_path = $HOME . '/.jenv/versions/oracle64-1.8.0.60/bin/java'
-call javacomplete#server#SetJVMLauncher($java8_path)
-
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
-let g:JavaComplete_ClosingBrace = 0
-" valid choices are 'jarName' and 'packageName'
-let g:JavaComplete_ImportSortType = 'packageName'
-let g:JavaComplete_ImportOrder = ['com.rocana', '*', 'java.', 'javax.']
-
-" Should be the default, but just in case
-let g:JavaComplete_MavenRepositoryDisable = 0
 
 "Easy Motion {{{2
 
