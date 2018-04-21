@@ -104,7 +104,7 @@ Plug 'vim-scripts/Perfect-Dark'
 Plug 'vim-scripts/moria'
 Plug 'xero/blaquemagick.vim'
 Plug 'xero/sourcerer.vim'
-Plug '/TroyFletcher/vim-colors-synthwave/'
+Plug 'TroyFletcher/vim-colors-synthwave/'
 
 " External Systems {{{2
 Plug 'jistr/vim-nerdtree-tabs'
@@ -134,13 +134,11 @@ Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
 Plug 'vimoutliner/vimoutliner'                  " For note taking
 
 " In Development {{{2
-Plug '~/code/vim-playlist'
 
 call plug#end()
 
 " Config Settings {{{1
 if !has("nvim")
-    set nocompatible    " Who uses actual vi?
     set ttyfast         " Send more characters for redraws
     set ttymouse=xterm2
 else
@@ -156,14 +154,15 @@ set foldlevel=99
 
 set showcmd " Show what's been typed so far in command pending mode
 
-set tabstop=4
+" Good default tab settings. Projects can use localvimrc to override this for
+" their native conventions, if they differ.
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
 set number " Line Numbers!
 
-set ffs="unix" " Show those ^M's when editing a windows file
+set fileformats="unix" " Show those ^M's when editing a windows file
 
 " Live dangerously
 set nobackup
@@ -217,11 +216,11 @@ nnoremap zO zCzO
 inoremap jk <esc>
 inoremap kj <esc>
 
-" equalize windows when vim is resized
+" equalize windows when vim is resized [4]
 autocmd VimResized * exe "normal! \<c-w>="
 
 set t_Co=256
-colorscheme wombat256mod
+colorscheme synthwave
 set background=dark
 
 " Format options:
@@ -243,7 +242,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 set showbreak=…
 
 " Upper case current word.  This is inspired by a mapping by Steve Losh,
-" adapted slightly to how I like to work
+" adapted slightly to how I like to work [4]
 inoremap <c-u> <esc>gUiwea
 nnoremap <c-u> gUiwe
 
@@ -322,11 +321,18 @@ call deoplete#custom#set('jedi', 'debug_enabled', 1)
 
 "Easy Motion {{{2
 
-"Replace f, F, t, T with their easy motion variants for all modes
-map f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
-map t <Plug>(easymotion-tl)
-map T <Plug>(easymotion-Tl)
+" Replace f, F, t, T with their easy motion variants for normal and visual
+nmap f <Plug>(easymotion-fl)
+xmap f <Plug>(easymotion-fl)
+
+nmap F <Plug>(easymotion-Fl)
+xmap F <Plug>(easymotion-Fl)
+
+nmap t <Plug>(easymotion-tl)
+xmap t <Plug>(easymotion-tl)
+
+nmap T <Plug>(easymotion-Tl)
+xmap T <Plug>(easymotion-Tl)
 
 " Fugitive {{{2
 " Not fugitive specific, but this is the only place I care about diffopt,
@@ -341,20 +347,36 @@ let g:gist_show_privates=1
 let g:gist_post_private = 1 " Default to private gists, because I'm paranoid
 
 " Incsearch {{{2
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+nmap /  <Plug>(incsearch-forward)
+xmap /  <Plug>(incsearch-forward)
+
+nmap ?  <Plug>(incsearch-backward)
+xmap ?  <Plug>(incsearch-backward)
+
+nmap g/ <Plug>(incsearch-stay)
+xmap g/ <Plug>(incsearch-stay)
+
 
 " Clear highlighting after finishing search
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+nmap n  <Plug>(incsearch-nohl-n)
+xmap n  <Plug>(incsearch-nohl-n)
 
+nmap N  <Plug>(incsearch-nohl-N)
+xmap N  <Plug>(incsearch-nohl-N)
+
+nmap *  <Plug>(incsearch-nohl-*)
+xmap *  <Plug>(incsearch-nohl-*)
+
+nmap #  <Plug>(incsearch-nohl-#)
+xmap #  <Plug>(incsearch-nohl-#)
+
+nmap g* <Plug>(incsearch-nohl-g*)
+xmap g* <Plug>(incsearch-nohl-g*)
+
+nmap g# <Plug>(incsearch-nohl-g#)
+xmap g# <Plug>(incsearch-nohl-g#)
 
 " lengthmatters {{{2
 let g:lengthmatters_use_textwidth=0
@@ -382,15 +404,6 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png " Images
 set wildignore+=*.o                      " Object files
 set wildignore+=*.class                  " Java class files
 
-
-" Playlist {{{2
-" Prototype configuration for my playlist plugin
-map <F8> <Plug>(playlist-skip)
-map <F7> <Plug>(playlist-pause)
-map <leader>plq <Plug>(playlist-quit)
-augroup filetype_playlist
-    autocmd FileType playlist map <buffer> <F5> <Plug>(playlist-load-current)
-augroup END
 
 " Python Mode {{{2
 " Override go-to.definition key shortcut to Ctrl-]
@@ -465,15 +478,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:ultisnips_python_style="sphinx"
 
 
-" Vim Pad config {{{2
-let g:pad#dir = "~/notes/"
-let g:pad#default_format = "votl"  " Default to vim outliner...
-let g:pad#search_backend = "ag"    " Use the silver searcher
-" Title first line setting creates duplicate entries in the pad ls view...
-" let g:pad#title_first_line = 1     " Use the first line of the file as a tilte
-let g:pad#window_height = 20
-let g:pad#open_in_split = 0
-
 " Better Whitespace {{{2
 " Automatically strip trailing whitespace on save for all filetypes.
 augroup plugin_better_whitespace
@@ -482,13 +486,6 @@ augroup END
 
 " let g:better_whitespace_filetypes_blacklist+=[]
 " default blacklist: ['diff', 'gitcommit', 'unite', 'qf', 'help']
-
-" YCM config {{{2
-" let g:ycm_seed_identifiers_with_syntax = 1 " Seed completion with keywords
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-" accpet ycm config files in my code directory
-" let g:ycm_extra_conf_globlist = ['~/code/*','!~/*']
-
 
 " Utility Functions {{{1
 
