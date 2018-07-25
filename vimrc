@@ -116,11 +116,11 @@ Plug 'tpope/vim-fugitive'                       " Git integration
 Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
 Plug 'vim-scripts/vimwiki'                      " For note taking?
 
+
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'honza/vim-snippets'                       " Actual snippets
-Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Valloric/YouCompleteMe'
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 
 " Meta {{{2
@@ -296,29 +296,6 @@ let g:clang_format#detect_style_file = 1
 " CtrlP {{{2
 let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
 
-" Deoplete {{{2
-let g:deoplete#enable_at_startup = 1
-
-" from the javacomplete2 wiki
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-" let g:deoplete#omni#input_patterns.java = [
-"     \'[^. \t0-9]\.\w*',
-"     \'[^. \t0-9]\->\w*',
-"     \'[^. \t0-9]\::\w*',
-"     \]
-let g:deoplete#omni#input_patterns.jsp = ['[^. \t0-9]\.\w*']
-let g:deoplete#ignore_sources = {}
-" let g:deoplete#ignore_sources._ = ['javacomplete2']
-
-let g:deoplete#enable_profile = 1
-" call deoplete#enable_logging('DEBUG', $HOME + '/deoplete.log')
-" call deoplete#custom#set('javacomplete2', 'debug_enabled', 1)
-call deoplete#custom#set('jedi', 'debug_enabled', 1)
-
-
 "Easy Motion {{{2
 
 " Replace f, F, t, T with their easy motion variants for normal and visual
@@ -449,7 +426,7 @@ let g:syntastic_aggregate_errors = 1
 " local vimrc to use it:
 " let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
 let g:syntastic_python_checkers=['flake8', 'pylint']
-let g:syntastic_java_checkers=['javac']
+" let g:syntastic_java_checkers=['javac']
 let g:syntastic_json_checkers=['jsonlint']
 
 " Always populate error list
@@ -466,9 +443,6 @@ omap aa <Plug>SidewaysArgumentTextobjA
 xmap aa <Plug>SidewaysArgumentTextobjA
 omap ia <Plug>SidewaysArgumentTextobjI
 xmap ia <Plug>SidewaysArgumentTextobjI
-
-" SuperTab {{{2
-let g:SuperTabDefaultCompletionType="<c-n>"
 
 " Ultisnips config {{{2
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
