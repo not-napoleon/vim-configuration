@@ -120,7 +120,7 @@ Plug 'vim-scripts/vimwiki'                      " For note taking?
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'honza/vim-snippets'                       " Actual snippets
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completion --java-completion'}
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 
 " Meta {{{2
