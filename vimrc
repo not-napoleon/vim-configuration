@@ -113,7 +113,8 @@ Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! am
 Plug 'mhinz/vim-startify'                       " Fancy start screen
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tpope/vim-fugitive'                       " Git integration
-Plug 'vim-scripts/a.vim'                        " Quickly switch between .c and .h files
+
+" Wiki Tools {{{2
 Plug 'vim-scripts/vimwiki'                      " For note taking?
 
 
@@ -130,8 +131,6 @@ Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 
 " Other {{{2
 Plug 'airblade/vim-rooter'                      " Automatically change to root directory
-Plug 'vim-scripts/TaskList.vim'                 " Work with todo tags
-Plug 'vimoutliner/vimoutliner'                  " For note taking
 
 " In Development {{{2
 
