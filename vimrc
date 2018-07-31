@@ -115,7 +115,7 @@ Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tpope/vim-fugitive'                       " Git integration
 
 " Wiki Tools {{{2
-Plug 'vim-scripts/vimwiki'                      " For note taking?
+Plug 'mmai/wikilink'
 
 
 " Completion {{{2
