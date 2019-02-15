@@ -1,1 +1,1 @@
-/Users/mtozzi/.vimrc
+vimrc

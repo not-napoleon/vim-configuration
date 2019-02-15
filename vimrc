@@ -113,6 +113,7 @@ Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! am
 Plug 'mhinz/vim-startify'                       " Fancy start screen
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
 Plug 'tpope/vim-fugitive'                       " Git integration
+Plug 'tpope/vim-rhubarb'                        " Github extention for fugitive
 
 " Wiki Tools {{{2
 Plug 'mmai/wikilink'
@@ -356,7 +357,7 @@ xmap g# <Plug>(incsearch-nohl-g#)
 
 " lengthmatters {{{2
 let g:lengthmatters_use_textwidth=0
-let g:lengthmatters_start_at_column=79  " good default
+let g:lengthmatters_start_at_column=140  " good default
 
 " localvimrc {{{2
 let g:localvimrc_name = ['.vimrc', '.lvimrc']
@@ -408,7 +409,7 @@ let g:startify_list_order=[
             \ ['    Most recently used in dir'], 'dir',
             \ ['    Bookmarks'], 'bookmarks'
             \ ]
-let g:startify_bookmarks=['~/.vimrc']
+let g:startify_bookmarks=['~/.vim/vimrc']
 let g:startify_session_persistence = 1
 let g:startify_session_dir = '~/.vim/tmp/session'
 
@@ -425,8 +426,10 @@ let g:syntastic_aggregate_errors = 1
 " local vimrc to use it:
 " let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
 let g:syntastic_python_checkers=['flake8', 'pylint']
-" let g:syntastic_java_checkers=['javac']
 let g:syntastic_json_checkers=['jsonlint']
+"
+" Disable syntastic java checking in favor of YCM
+let g:syntastic_java_checkers = []
 
 " Always populate error list
 let g:syntastic_always_populate_loc_list = 1
@@ -453,9 +456,10 @@ let g:ultisnips_python_style="sphinx"
 
 " Better Whitespace {{{2
 " Automatically strip trailing whitespace on save for all filetypes.
-augroup plugin_better_whitespace
-    autocmd BufWritePre * StripWhitespace
-augroup END
+" DISABLED FOR NOW TO NOT CLUTTER PRs
+" augroup plugin_better_whitespace
+"     autocmd BufWritePre * StripWhitespace
+" augroup END
 
 " let g:better_whitespace_filetypes_blacklist+=[]
 " default blacklist: ['diff', 'gitcommit', 'unite', 'qf', 'help']
@@ -564,7 +568,7 @@ augroup filetype_java
     autocmd!
     autocmd FileType java setlocal foldmethod=syntax
     autocmd FileType java setlocal textwidth=90
-    autocmd FileType java let g:lengthmatters_start_at_column=100
+    autocmd FileType java let g:lengthmatters_start_at_column=140
 augroup END
 
 " C# and Mono {{{2
