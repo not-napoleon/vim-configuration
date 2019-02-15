@@ -99,7 +99,6 @@ Plug 'freeo/vim-kalisi'
 Plug 'jscappini/material.vim'
 Plug 'michalbachowski/vim-wombat256mod'
 Plug 'romainl/Apprentice'
-Plug 'Sclarki/neonwave.vim'
 Plug 'vim-scripts/Perfect-Dark'
 Plug 'vim-scripts/moria'
 Plug 'xero/blaquemagick.vim'
@@ -122,8 +121,8 @@ Plug 'mmai/wikilink'
 " Completion {{{2
 Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'honza/vim-snippets'                       " Actual snippets
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completion --java-completion'}
 Plug 'not-napoleon/vim-byline'                  " Sign your work
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Meta {{{2
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
