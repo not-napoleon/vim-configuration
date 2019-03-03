@@ -123,6 +123,7 @@ Plug 'SirVer/ultisnips'                         " Snippets and such
 Plug 'honza/vim-snippets'                       " Actual snippets
 Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'tpope/vim-abolish'                        " Better abbreviations
 
 " Meta {{{2
 Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
@@ -140,10 +141,10 @@ call plug#end()
 if !has("nvim")
     set ttyfast         " Send more characters for redraws
     set ttymouse=xterm2
-else
-    " TODO check if the virtual envs exist, and if not create them
-    let g:python_host_prog=$HOME . "/.virtualenvs/neovim/bin/python2"
-    let g:python3_host_prog=$HOME . "/.virtualenvs/neovim-python3/bin/python3"
+" else
+"     " TODO check if the virtual envs exist, and if not create them
+"     let g:python_host_prog=$HOME . "/.virtualenvs/neovim/bin/python2"
+"     let g:python3_host_prog=$HOME . "/.virtualenvs/neovim-python3/bin/python3"
 endif
 
 " Start with all folds open and default to a sane fold method.  Filetypes
