@@ -92,6 +92,7 @@ Plug 'mbbill/undotree'                          " Visualize vim's undo tree
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
+Plug 'diepm/vim-rest-console'                   " Use vim as elasticsearch client
 
 " Colorschemes {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
