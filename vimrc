@@ -14,6 +14,7 @@
 " [4] https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
 " [5] http://stackoverflow.com/a/1270689
 " [6] http://vim.wikia.com/wiki/List_loaded_scripts
+" [7] https://stackoverflow.com/a/9527384/529459
 "
 " To the best of my knowledge, all sources are used with permission.
 "
@@ -91,6 +92,7 @@ Plug 'mbbill/undotree'                          " Visualize vim's undo tree
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
 Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
+Plug 'diepm/vim-rest-console'                   " Use vim as elasticsearch client
 
 " Colorschemes {{{2
 Plug 'altercation/vim-colors-solarized'         " Solarized color scheme
@@ -541,6 +543,10 @@ function! EqualHeaderFolding()
         return "="
     endif
 endfunction
+
+" Timestamp to Date tools
+command EpochToDate s/\(\d\{10\}\)\(\d\{3\}\)\?/\=strftime("%Y-%m-%d", str2nr(submatch(1)))/
+command EpochToDatetime s/\(\d\{10\}\)\(\d\{3\}\)\?/\=strftime("%Y-%m-%d %H:%M:%S", str2nr(submatch(1)))/
 
 " Filetype Specific Stuff {{{1
 
