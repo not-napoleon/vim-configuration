@@ -61,25 +61,17 @@ Plug 'AndrewRadev/sideways.vim'                 " Move items around in lists
 Plug 'easymotion/vim-easymotion'                " Fast in document movement
 Plug 'gregsexton/MatchTag'                      " Tag pairing? I guess?
 Plug 'michaeljsmith/vim-indent-object'          " Indent level text objects
-Plug 'tmhedberg/matchit'
 Plug 'tomtom/tcomment_vim'                      " Block commenting
-Plug 'tpope/vim-speeddating'                    " Increment/decrement dates
 Plug 'tpope/vim-surround'                       " Handle paired markers
 Plug 'tpope/vim-unimpaired'                     " Paired short-cuts with braces
-Plug 'vim-scripts/text-object-left-and-right'   " Text objects for LHS/RHS of expressions
 
 " Filetype Support {{{2
 Plug 'cespare/vim-toml'
 Plug 'dag/vim-fish', {'for': 'fish'}
-Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'klen/python-mode', {'for': 'python'}
-Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 Plug 'rust-lang/rust.vim'
-Plug 'vim-scripts/applescript.vim', {'for': 'applescript'}
-Plug 'rdolgushin/groovy.vim', {'for': 'groovy'}
-Plug 'vim-scripts/groovyindent-unix', {'for': 'groovy'}
 
 " Interface Mods {{{2
 Plug 'bling/vim-airline'                        " Improved status line
@@ -87,10 +79,7 @@ Plug 'embear/vim-foldsearch'
 Plug 'godlygeek/tabular'                        " Align text as needed
 Plug 'haya14busa/incsearch.vim'                 " Better incremental search
 Plug 'lfv89/vim-interestingwords'               " Arbitrary highlights
-Plug 'majutsushi/tagbar'                        " Navigate by tagfile
-Plug 'mbbill/undotree'                          " Visualize vim's undo tree
 Plug 'ntpeters/vim-better-whitespace'           " Trailing Whitespace highlite & trim
-Plug 'scrooloose/syntastic'                     " Flag syntax errors
 Plug 'whatyouhide/vim-lengthmatters'            " Highlite overly long lines
 Plug 'diepm/vim-rest-console'                   " Use vim as elasticsearch client
 
@@ -108,8 +97,6 @@ Plug 'xero/sourcerer.vim'
 Plug 'TroyFletcher/vim-colors-synthwave/'
 
 " External Systems {{{2
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'kien/ctrlp.vim'                           " Fuzzy match file opener
 Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Post gists direct from vim! amazing!
 Plug 'mhinz/vim-startify'                       " Fancy start screen
 Plug 'scrooloose/nerdtree'                      " Filesystem broswer
@@ -127,8 +114,6 @@ Plug 'not-napoleon/vim-byline'                  " Sign your work
 Plug 'tpope/vim-abolish'                        " Better abbreviations
 
 " Meta {{{2
-Plug 'embear/vim-localvimrc'                    " Support for project specific vim settings
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'                         " Enable dot repeat for plugins
 
 " Other {{{2
