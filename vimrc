@@ -279,9 +279,6 @@ let g:clang_format#auto_formatexpr = 1
 " Read project style files
 let g:clang_format#detect_style_file = 1
 
-" CtrlP {{{2
-let g:ctrlp_reuse_window='startify'  " Let ctrlp reuse the startify window
-
 "Easy Motion {{{2
 
 " Replace f, F, t, T with their easy motion variants for normal and visual
@@ -345,15 +342,6 @@ xmap g# <Plug>(incsearch-nohl-g#)
 let g:lengthmatters_use_textwidth=0
 let g:lengthmatters_start_at_column=140  " good default
 
-" localvimrc {{{2
-let g:localvimrc_name = ['.vimrc', '.lvimrc']
-let g:localvimrc_event = ['VimEnter']
-" Don't load in sandbox mode - risky, so we'll ask before loading
-let g:localvimrc_sandbox = 0
-let g:localvimrc_ask = 1
-let g:localvimrc_persistent = 1
-
-let g:localvimrc_blacklist = $HOME . '/.vim/vimrc'
 
 " Nerd Tree {{{2
 map <C-n> :NERDTreeToggle<CR>
@@ -401,27 +389,6 @@ let g:startify_session_dir = '~/.vim/tmp/session'
 
 " Trigger NERDtree to reuse the startify window (works for Ctrl-P too)
 autocmd User Startified setlocal buftype=
-
-" Syntastic config {{{2
-" Syntastic checker plugins
-
-let g:syntastic_aggregate_errors = 1
-
-" Note to self: make sure pylint is running in the venv, not the system pylint
-" Also, there's a pylint plugin to play nicely with django, put this in a
-" local vimrc to use it:
-" let g:syntastic_python_pylint_args = '--load-plugins pylint_django'
-let g:syntastic_python_checkers=['flake8', 'pylint']
-let g:syntastic_json_checkers=['jsonlint']
-"
-" Disable syntastic java checking in favor of YCM
-let g:syntastic_java_checkers = []
-
-" Always populate error list
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 
 " Sideways macro & text object {{{2
 nnoremap <c-h> :SidewaysLeft<cr>
