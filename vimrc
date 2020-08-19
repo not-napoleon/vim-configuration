@@ -104,7 +104,7 @@ Plug 'tpope/vim-fugitive'                       " Git integration
 Plug 'tpope/vim-rhubarb'                        " Github extention for fugitive
 
 " Wiki Tools {{{2
-Plug 'mmai/wikilink'
+Plug 'vimwiki/vimwiki'
 
 
 " Completion {{{2
