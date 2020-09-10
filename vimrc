@@ -465,6 +465,10 @@ let g:ultisnips_python_style="sphinx"
 " let g:better_whitespace_filetypes_blacklist+=[]
 " default blacklist: ['diff', 'gitcommit', 'unite', 'qf', 'help']
 
+" Vim Rest Console {{{2
+let g:vrc_elasticsearch_support = 1
+let g:vrc_allow_get_request_body = 1
+let g:vrc_response_default_content_type = 'application/json'
 " Utility Functions {{{1
 
 " reselect text just pasted with gp [1]
