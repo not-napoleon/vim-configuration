@@ -15,9 +15,15 @@ require("feline").setup()
 vim.g.vimwiki_list = {
 	{
 		name = 'Personal Wiki',
-		path = '~/personalwiki',
+		path = '~/wiki/personalwiki',
 		syntax = 'markdown',
 		ext = '.wiki',
+	},
+	{
+		name = 'Cat Wiki',
+		path = '~/wiki/cat-wiki.wiki',
+		syntax = 'media',
+		ext = '.md',
 	}
 }
 
@@ -31,8 +37,7 @@ vim.opt.foldlevel = 99
 
 vim.opt.showcmd = true -- Show what's been typed so far in command pending mode
 
--- Good default tab settings. Projects can use localvimrc to override this for
--- their native conventions, if they differ.
+-- Good default tab settings. 
 vim.opt.softtabstop=4
 vim.opt.shiftwidth=4
 vim.opt.expandtab = true
